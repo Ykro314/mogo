@@ -11,6 +11,8 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-csscomb": "^3.1.0",
     "grunt-replace": "^0.11.0",
-    "load-grunt-tasks": "^3.4.0"
+    "load-grunt-tasks": "^3.4.0",
+    "node-static": "^0.7.7",
+    "normalize.css": "^4.0.0"
   }
 }

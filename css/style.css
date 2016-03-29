@@ -1,20 +1,4 @@
-.text1 {
-  color: blue;
-  font-family: "Montserrat", sans-serif;
-  text-transform: uppercase;
-  font-weight: bold;
+.inner {
+  width: 1200px;
+  margin: 0 auto;
 }
-.text2 {
-  color: blue;
-  font-family: "Kaushan Script", cursive;
-}
-.text3 {
-  color: blue;
-  font-family: "Roboto", sans-serif;
-  font-style: italic;
-}
-/*@font-face {
-  font-family: "Kaushian";
-  src: url("../fonts/KaushanScript-Regular.otf");
-  src: url("../fonts/KaushanScript-Regular.ttf");
-} */
