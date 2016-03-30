@@ -1,0 +1,140 @@
+.header {
+  padding-top: 25px;
+  background-image: url("/graph/img/header-background.jpg");
+  background-color: @C-light-red;
+  background-repeat: no-repeat;
+  background-position:  top center;
+  background-size: cover;
+  color: white;
+  &__navigation-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 170px;
+  }
+  &__title {
+    margin-bottom: 60px;
+    text-align: center;
+    font-family: @f-Kaushan;
+    font-size: 72px;
+    line-height: 72px;
+  }
+  &__intro {
+    position: relative;
+    margin: 0 auto;
+    width: 80%;
+    margin: 0;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 50px;
+    padding-bottom: 72px;
+    text-align: center;
+    font-family: @f-Montserrat;
+    font-size: 150px;
+    line-height: 140px;
+    text-transform: uppercase;
+    font-weight: bold;
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: 0px;
+      left: ~"calc(50% - 30px)";
+      width: 60px;
+      height: 3px;
+      background: white;
+    }
+  }
+  &__button {
+    display: block;
+    width: 155px;
+    margin: 0 auto;
+    margin-bottom: 155px;
+    padding: 12px 0;
+    border: 3px solid white;
+    font-size: 14px;
+    line-height: 14px;
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+  }
+}
+
+.navigation {
+  &__logo {
+    font-family: @f-Montserrat;
+    font-size: 30px;
+    font-weight: bold;
+  }
+  &__list {
+    display: flex;
+    width: 617px;
+    justify-content: space-between;
+  }
+  &__item {
+    padding: 10px 0;
+    a {
+      font-family: @f-Montserrat;
+      font-size: 14px;
+      line-height: 25px;
+      text-transform: uppercase;
+      color: white;
+      &:hover {
+        color: @C-light-yellow;
+      }
+    }
+  }
+  &__item--cart a,
+  &__item--search a{
+    display: block;
+    width: 25px;
+    height: 25px;
+  }
+  &__item--cart a {
+    background: url("/graph/img/navigation-cart-icon.png") no-repeat 0 0;
+  }
+  &__item--search a {
+    background: url("/graph/img/navigation-search-icon.png") no-repeat 0 0;
+  }
+}
+
+.site-map{
+  &__container {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__item {
+    width: 23%;
+    padding: 25px 0;
+    border-top: 2px solid white;
+    font-family: @f-Montserrat;
+    font-size: 18px;
+    text-transform: uppercase;
+    line-height: 18px;
+    b {
+      font-size: 24px;
+      font-weight: bold; 
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
