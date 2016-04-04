@@ -69,9 +69,11 @@
     font-weight: bold;
   }
   &__list {
+    position: relative;
     display: flex;
     width: 617px;
     justify-content: space-between;
+    overflow: hidden;
   }
   &__item {
     padding: 10px 0;
@@ -81,6 +83,8 @@
       line-height: 25px;
       text-transform: uppercase;
       color: white;
+      padding: 10px;
+      transition: color 0.3s;
       &:hover {
         color: @C-light-yellow;
       }
@@ -93,10 +97,19 @@
     height: 25px;
   }
   &__item--cart a {
-    background: url("/graph/img/navigation-cart-icon.png") no-repeat 0 0;
+    background: url("/graph/img/navigation-cart-icon.png") no-repeat center 0;
   }
   &__item--search a {
-    background: url("/graph/img/navigation-search-icon.png") no-repeat 0 0;
+    background: url("/graph/img/navigation-search-icon.png") no-repeat center 0; 
+  }
+  &__line {
+    position: absolute;
+    bottom: 10px;
+    left: -50px;
+    width: 50px;
+    height: 4px;
+    background: @C-light-yellow;
+    transition: all 0.4s ease-in;
   }
 }
 
