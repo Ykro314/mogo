@@ -48,17 +48,44 @@
     }
   }
   &__button {
+    position: relative;
+    overflow: hidden;
     display: block;
-    width: 155px;
+    width: 180px;
     margin: 0 auto;
     margin-bottom: 155px;
-    padding: 12px 0;
+    padding: 15px 0;
     border: 3px solid white;
-    font-size: 14px;
+    font-family: @f-Montserrat;
+    font-size: 17px;
+    font-weight: bold;
     line-height: 14px;
     text-align: center;
     color: white;
     text-transform: uppercase;
+    span {
+      position: relative;
+      z-index: 10;
+    }
+    &:after {
+      content: "";
+      width: 100%;
+      height: 36px;
+      background: white;
+      position: absolute;
+      top: ~"calc(50% - 18px)";
+      left: 0;
+      transition: all 0.4s ease-out;
+      transform: skewY(-50deg) scaleY(0);
+      opacity: 0;
+    }
+    &:hover {
+      color: #f38181; /*#fcad26  #ffa100  #ffcd1a  #f38181 #ffc700*/ 
+    }
+    &:hover:after {
+      opacity: 1;
+      transform: skewY(-50deg) scaleY(6);
+    }
   }
 }
 
@@ -104,12 +131,12 @@
   }
   &__line {
     position: absolute;
-    bottom: 10px;
+    bottom: 15px;
     left: -50px;
-    width: 50px;
+    width: 0px;
     height: 4px;
     background: @C-light-yellow;
-    transition: all 0.4s ease-in;
+    transition: all 0.5s ease;
   }
 }
 
@@ -119,16 +146,48 @@
     justify-content: space-between;
   }
   &__item {
+    position: relative;
     width: 23%;
     padding: 25px 0;
-    border-top: 2px solid white;
     font-family: @f-Montserrat;
     font-size: 18px;
     text-transform: uppercase;
     line-height: 18px;
+    overflow: hidden;
+    cursor: pointer;
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 3px;
+    }
+    &:before {
+      width: 100%;
+      background: white;
+    }
+    &:after {
+      width: 30%;
+      z-index: 11;
+      background: #f38181;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease-out;
+    }
+    &:hover:after {
+      transform: scaleX(1);
+    }
     b {
+      display: inline-block;
       font-size: 24px;
-      font-weight: bold; 
+      font-weight: bold;
+      text-shadow: 0 100px 0 #f38181;
+      transform: translateY(0);
+      transition: transform 0.5s;
+    }
+    &:hover b {
+      transform: translateY(-100px);
     }
   }
 }

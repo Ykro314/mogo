@@ -6,20 +6,80 @@
   }
   &__item {
     position: relative;
+    transition: all 0.5s;
     img {
       position: relative;
       z-index: 10;
     }
-    .overlay {
+    &:before,
+    &:after {
+      content: "";
       position: absolute;
+      z-index: 15;
+      transform: translate(0px, 0px);
+      transition: all 0.5s ease;
+      opacity: 0;
+    }
+    &:before {
       top: 0;
-      left: 0;
       right: 0;
       bottom: 4px;
-      z-index: 100;
-      opacity: 0.8;
-      background-image: linear-gradient(to top, @C-light-yellow, @C-light-red);
+      left: 0;
+      background-image: linear-gradient( to top, rgba(252, 227, 138, 0.8), rgba(243, 129, 129, 0.8) );
+//      box-shadow: 10px 10px 0 0 @C-aquamarine;
     }
+    &:after {
+      top: ~"calc(50% - 26px)";
+      left: 0;
+      width: 100%;
+      padding-top: 35px;
+      color: white;
+      text-align: center;
+      text-transform: uppercase;
+      font-family: @f-Montserrat;
+      font-weight: bold;
+      font-size: 18px;
+      line-height: 18px;
+    }
+    &:nth-child(1):after {
+      content: "Super team";
+      background: url("/graph/img/main-icon-story-hover.png") no-repeat center top;
+    }
+    &:nth-child(2):after {
+      content: "Amazing works";
+      background: url("/graph/img/main-icon-story-hover.png") no-repeat center top;
+    }
+    &:nth-child(3):after {
+      content: "Great service";
+      background: url("/graph/img/main-icon-story-hover.png") no-repeat center top;
+    }
+    &:hover:before,
+    &:hover:after {
+      opacity: 1;
+      transform: translate(-10px, -10px);
+    }
+    &:hover:before{
+      box-shadow: 10px 10px 0 0 @C-aquamarine;
+//      opacity: 1;
+//      transform: translate(-10px, -10px);
+    }
+//    .overlay {
+//      display: none;
+//      position: absolute;
+//      top: 0;
+//      left: 0;
+//      right: 0;
+//      bottom: 4px;
+//      z-index: 100;
+//      opacity: 0.8;
+//      background-image: linear-gradient(to top, @C-light-yellow, @C-light-red);
+//      color: white;
+////      font-weight: bold;
+//      text-transform: uppercase;
+//    }
+//    &:hover .overlay {
+//      display: block;
+//    }
   }
 }
 
