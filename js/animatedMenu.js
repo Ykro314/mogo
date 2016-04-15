@@ -11,13 +11,6 @@ var AnimatedMenu = function( menuElement ) {
 
 
 
-AnimatedMenu.prototype.ready = function() {
-  this.element.addEventListener( "mouseover", this.mouseOverHandler );
-  this.element.addEventListener( "mouseout", this.mouseOutHandler );
-}
-
-
-
 AnimatedMenu.prototype.moveUnderline = function( event ) {
   var targetCoords = event.target.getBoundingClientRect();
   var menuCoords = this.element.getBoundingClientRect();
@@ -34,6 +27,10 @@ AnimatedMenu.prototype.hideUnderline = function( event ) {
 }
 
 
+AnimatedMenu.prototype.init = function() {
+  this.element.addEventListener( "mouseover", this.mouseOverHandler );
+  this.element.addEventListener( "mouseout", this.mouseOutHandler );
+}
 
 AnimatedMenu.prototype.mouseOverHandler = function( event ) {
   if( event.target.tagName.toLowerCase() === "a" ) {
@@ -53,3 +50,6 @@ window.AnimatedMenu = AnimatedMenu;
   
 })();
  
+
+
+
