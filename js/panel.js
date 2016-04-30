@@ -1,12 +1,21 @@
 function Panel( element ) {
   this.element = element;
-  this.container = element.parentElement;
+  this.cont = document.querySelector( ".skills" );
+  this.container = element.parentElement; /*not in usage*/
   this.content = element.querySelector( ".panel__content" );
+  this.text = element.querySelector( ".panel__text" );
   this.scrollbar = element.querySelector( ".panel__scrollbar" );
   
+  this.imageDataNumber = null;
+  
+  this.VISIBLE_HEIGHT = this.content.getBoundingClientRect().height;
+  this.VISIBLE_1_PERCENT = this.VISIBLE_HEIGHT / 100;
+  
+  this.REAL_HEIGHT = this.text.getBoundingClientRect().height;
+  this.REAL_1_PERCENT = this.REAL_HEIGHT / 100;
+  
   this.onClickHandler = this.onClickHandler.bind( this );
-//  this.scrollbarDragAndDrop = this.scrollbarDragAndDrop.bind( this );
-  this.dragHandler = this.dragHandler.bind( this );
+  this.mousedownHandler = this.mousedownHandler.bind( this );
   
   this.init();
 }
@@ -19,50 +28,56 @@ Panel.prototype.init = function() {
   this.element.addEventListener( "click", this.onClickHandler );
 }
 
-Panel.prototype.onClickHandler = function( event ) {
-  this.open();
-  
-  if( this.scrollbar.getBoundingClientRect().height ) {
-    this.scrollbar.addEventListener( "mousedown", this.dragHandler );
-  }
-}
-
-Panel.prototype.open = function() {
-  if( this.element == this.activePanel ) {
-    return;
-  }
-  else {
-    Panel.prototype.activePanel.classList.remove( "panel--active" );
-    this.element.classList.add( "panel--active" );
-    
-    Panel.prototype.activePanel = this.element;
-    Panel.prototype.activePanel.removeEventListener( "mousedown", this.dragHandler );
-//    Panel.prototype.activeScrollbar = this.activePanel.querySelector( ".panel__scrollbar" );
-  }
-}
-
 Panel.prototype.calculateScrollbarHeight = function(){
-  var realHeight = this.content.getBoundingClientRect().height;
-  var visibleHeight = 160;
-  
-  this.scrollbar.style.height = setScrollbarHeight() + "px";
-  
   function setScrollbarHeight() {
-    var percentage = realHeight / 100;
-    var scrollbarRatio = visibleHeight / percentage;
-    var scrollHeight = scrollbarRatio * ( visibleHeight / 100 );
+    var scrollbarRatio = this.VISIBLE_HEIGHT / this.REAL_1_PERCENT;
+    var scrollHeight = scrollbarRatio * ( this.VISIBLE_HEIGHT / 100 );
     
-    if( scrollHeight > visibleHeight ) {
+    if( scrollHeight > this.VISIBLE_HEIGHT ) {
       scrollHeight = 0;
     }
     
     return scrollHeight;
   }
+  
+  this.scrollbar.style.height = setScrollbarHeight.apply( this ) + "px";
+  
 }
 
+Panel.prototype.onClickHandler = function( event ) {
+  this.open();
+  
+  if( this.scrollbar.getBoundingClientRect().height ) {
+    this.scrollbar.addEventListener( "mousedown", this.mousedownHandler);
+  }
+}
 
+Panel.prototype.open = function() {
+  function changeActiveImage() {
+    Panel.prototype.activeImage.classList.remove( "skills__image--active" );
+    this.img.classList.add( "skills__image--active" );
 
-Panel.prototype.dragHandler = function( event ) {
+    Panel.prototype.activeImage = this.img;
+  }
+  function changeActivePanel() {
+    Panel.prototype.activePanel.classList.remove( "panel--active" );
+    this.element.classList.add( "panel--active" );
+
+    Panel.prototype.activePanel = this.element;
+    Panel.prototype.activePanel.removeEventListener( "mousedown", this.mousedownHandler );
+  }
+  
+  if( this.element == this.activePanel ) {
+    return;
+  }
+  else {
+    changeActivePanel.apply( this );
+    changeActiveImage.apply( this );
+    console.log( this.index );
+  }
+}
+
+Panel.prototype.mousedownHandler = function( event ) {
   if( event.target.classList.contains( "panel__scrollbar" ) ) {
     this.scrollbarDragAndDrop( event );
   }
@@ -72,38 +87,47 @@ Panel.prototype.dragHandler = function( event ) {
 
 Panel.prototype.scrollbarDragAndDrop = function( event ) {
   event.preventDefault();
-  var container = this.content;
-  var scrollbar = this.scrollbar;
   
-  var shiftY = event.clientY - scrollbar.getBoundingClientRect().top;
+  var shiftY = event.clientY - this.scrollbar.getBoundingClientRect().top;
+  moveScrollbar = moveScrollbar.bind( this );
   
-  document.addEventListener( "mousemove", move );
+  document.addEventListener( "mousemove", moveScrollbar );
   document.addEventListener( "mouseup", function( event ) {
-    document.removeEventListener( "mousemove", move );
+    document.removeEventListener( "mousemove", moveScrollbar );
   })
   
-  function move( event ) {
+  function moveScrollbar( event ) {
     event.preventDefault();
-    var containerCoordsTop = container.getBoundingClientRect().top;
-    var scrollbarHeight = scrollbar.getBoundingClientRect().height;
-    var visibleHeight = 160;
+    var containerCoordsTop = this.content.getBoundingClientRect().top;
+    var scrollbarHeight = this.scrollbar.getBoundingClientRect().height;
     
     var coordsRare = event.clientY - containerCoordsTop;
     var scrollbarPositionTop = coordsRare - shiftY;
     
     if( scrollbarPositionTop <= 0 ) {
-      scrollbar.style.top = 0 + "px";
+      this.scrollbar.style.top = 0 + "px";
     }
-    else if ( scrollbarPositionTop >= ( visibleHeight - scrollbarHeight) ) {
-      scrollbar.style.top = visibleHeight - scrollbarHeight + "px";
+    else if ( scrollbarPositionTop >= ( this.VISIBLE_HEIGHT - scrollbarHeight) ) {
+      this.scrollbar.style.top = this.VISIBLE_HEIGHT - scrollbarHeight + "px";
     }
     else {
-      scrollbar.style.top = scrollbarPositionTop + "px";
+      this.scrollbar.style.top = scrollbarPositionTop + "px";
+      
+      this.moveTextBlock( scrollbarPositionTop );
     }
   }
 }
 
+Panel.prototype.moveTextBlock = function( scrollbarShiftCoord ) {
+  var shiftRatio = scrollbarShiftCoord / this.VISIBLE_1_PERCENT;
+  
+  this.text.style.top = - ( shiftRatio * this.REAL_1_PERCENT +  ( shiftRatio / 2 ) )  + "px";
+}
+
+
+
 Panel.prototype.activePanel = document.querySelector( '.panel--active' );
+Panel.prototype.activeImage = document.querySelector( ".skills__image--active" );
 
 
 

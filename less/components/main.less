@@ -186,17 +186,18 @@
   &__feature-images {
     width: 47%;  
     margin-right: 3%; 
-    img {
-      width: 100%; 
-      display: none;
-    }
-    img.active { 
+  }
+  &__image {
+    width: 100%; 
+    display: none;
+    &--active {
       display: block;
     }
   }
   &__feature-panels {
     width: 50%;
   }
+  
   .panel {
     box-sizing: border-box;
     height: 58px;
@@ -233,23 +234,23 @@
     &__content {
       position: relative;
       box-sizing: border-box;
-      padding: 14px 41px 14px 19px;
-//      min-height: 160px;
+      overflow: hidden;
+//      padding: 14px 41px 14px 19px;
+      height: 160px;
       font-size: 15px;
       line-height: 24px;
       font-family: @f-Roboto;
       font-style: italic;
       border: 1px solid @bc-grey;
-      border-top: none;
+      border-top: none; 
       border-bottom: none;
-      overflow: hidden;
     }
-//    &__text {
-//      padding: 14px 41px 14px 19px;
-//      position: absolute;
-//      top: 0;
-//      left: 0;
-//    }
+    &__text {
+      padding: 14px 45px 14px 19px;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
     &__button {
       position: absolute;
       top: ~"calc(50% - 8px)";
@@ -277,12 +278,13 @@
       top: 0;
       right: 24px;
       width: 5px;
+      border: 3px solid transparent;
 //      height: 40px;
       background: @c-aquamarine;
       border-radius: 7px;
       cursor: pointer;
-      border-left: 3px solid transparent;
-      border-right: 3px solid transparent;
+      border-left: 5px solid transparent; 
+      border-right: 5px solid transparent;
       background-clip: content-box;
     }
   }
@@ -293,7 +295,7 @@
     height: 218px; 
     .panel__button {
       &:before {
-        transform: rotate(225deg)
+        transform: rotate(225deg); 
       }
     }
   }
@@ -431,8 +433,8 @@
   &__review {
     position: relative;
     box-sizing: border-box;
-    flex-basis: 45%;
-    padding-left: 140px;
+    width: 45%;
+    padding-left: 140px; 
     margin-bottom: 65px;
   }
   &__photo {
