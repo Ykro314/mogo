@@ -66,14 +66,68 @@ Panel.prototype.open = function() {
     Panel.prototype.activePanel = this.element;
     Panel.prototype.activePanel.removeEventListener( "mousedown", this.mousedownHandler );
   }
+  function check() {
+    var a = this.activePanel.getAttribute( "data-index" );
+    var b = this.element.getAttribute( "data-index" );
+    if ( a < b ) {
+      console.log( "more" );
+      this.img.classList.remove( "skills__image--hidden" );
+    }
+    else if( a == b ) {
+      return;
+    }
+    else {
+      console.log( "less" );
+      console.log( this.activeImage );
+      this.activeImage.classList.add( "skills__image--hidden" );
+    }
+//    console.log( this.activePanel.getAttribute( "data-index" ) );
+//    console.log( this.element.getAttribute( "data-index" ) );
+  }
+  
+  function minus() {
+    var a = this.activePanel.getAttribute( "data-index" );
+    var b = this.element.getAttribute( "data-index" );
+    
+    var img = this.img;
+    var activeImg = this.activeImage;
+    
+    switch ( a - b ) {
+      case -1:
+        console.log( "less" );
+        this.img.classList.remove( "skills__image--hidden" );
+        break;
+      case -2: 
+        console.log( "less 2" );
+        setTimeout( function() {
+          img.classList.remove( "skills__image--hidden" );;
+        }, 130 );
+        this.img.previousElementSibling.classList.remove( "skills__image--hidden" );
+//        this.img.classList.remove( "skills__image--hidden" );
+        break;
+      case 1: 
+        this.activeImage.classList.add( "skills__image--hidden" );
+        break;
+      case 2: 
+        console.log( "more 2" );
+        setTimeout( function(){
+          activeImg.previousElementSibling.classList.add( "skills__image--hidden" );
+        }, 130 );
+        this.activeImage.classList.add( "skills__image--hidden" );
+//        this.activeImage.previousElementSibling.classList.add( "skills__image--hidden" );
+        break;
+    }
+  }
   
   if( this.element == this.activePanel ) {
     return;
   }
   else {
-    changeActivePanel.apply( this );
-    changeActiveImage.apply( this );
-    console.log( this.index );
+    minus.call( this )
+//    check.apply( this );
+    changeActivePanel.call( this );
+    changeActiveImage.call( this );
+    
   }
 }
 

@@ -23,6 +23,7 @@ function createPanels( panels ) {
   var panelImages = document.querySelectorAll( ".skills__feature-images img" );
   for( var i = 0; i < panels.length; i++ ) {
     array[i] = new Panel( panels[i] );
+    array[i].element.setAttribute( "data-index", i + 1 );
     array[i].img = panelImages[i];
     array[i].index = i + 1;
   }
