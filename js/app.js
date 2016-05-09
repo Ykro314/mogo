@@ -31,3 +31,9 @@ function createPanels( panels ) {
 }
 
 var panelElements = createPanels( document.querySelectorAll( ".panel" ) );
+
+
+
+/*Carousel component*/
+
+var carousel = new Carousel( document.querySelector( ".carousel" ) );

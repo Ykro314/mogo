@@ -1,3 +1,8 @@
+(function(){
+  
+"use strict"
+
+
 function Panel( element ) {
   this.element = element;
   this.cont = document.querySelector( ".skills" );
@@ -28,6 +33,10 @@ Panel.prototype.init = function() {
   this.element.addEventListener( "click", this.onClickHandler );
 }
 
+
+/**
+* Calculates height of scrollbar element considering ratio of visible height and real textElement height.
+*/
 Panel.prototype.calculateScrollbarHeight = function(){
   function setScrollbarHeight() {
     var scrollbarRatio = this.VISIBLE_HEIGHT / this.REAL_1_PERCENT;
@@ -40,9 +49,10 @@ Panel.prototype.calculateScrollbarHeight = function(){
     return scrollHeight;
   }
   
-  this.scrollbar.style.height = setScrollbarHeight.apply( this ) + "px";
+  this.scrollbar.style.height = setScrollbarHeight.call( this ) + "px";
   
 }
+
 
 Panel.prototype.onClickHandler = function( event ) {
   this.open();
@@ -52,40 +62,28 @@ Panel.prototype.onClickHandler = function( event ) {
   }
 }
 
+
+/**
+* Opens clicked panel and initializes event listeners, changes active image with proper animation.
+*/
 Panel.prototype.open = function() {
+  
   function changeActiveImage() {
     Panel.prototype.activeImage.classList.remove( "skills__image--active" );
     this.img.classList.add( "skills__image--active" );
 
     Panel.prototype.activeImage = this.img;
   }
+  
   function changeActivePanel() {
     Panel.prototype.activePanel.classList.remove( "panel--active" );
     this.element.classList.add( "panel--active" );
 
     Panel.prototype.activePanel = this.element;
     Panel.prototype.activePanel.removeEventListener( "mousedown", this.mousedownHandler );
-  }
-  function check() {
-    var a = this.activePanel.getAttribute( "data-index" );
-    var b = this.element.getAttribute( "data-index" );
-    if ( a < b ) {
-      console.log( "more" );
-      this.img.classList.remove( "skills__image--hidden" );
-    }
-    else if( a == b ) {
-      return;
-    }
-    else {
-      console.log( "less" );
-      console.log( this.activeImage );
-      this.activeImage.classList.add( "skills__image--hidden" );
-    }
-//    console.log( this.activePanel.getAttribute( "data-index" ) );
-//    console.log( this.element.getAttribute( "data-index" ) );
-  }
+  }  
   
-  function minus() {
+  function animateImageChange() {
     var a = this.activePanel.getAttribute( "data-index" );
     var b = this.element.getAttribute( "data-index" );
     
@@ -94,42 +92,38 @@ Panel.prototype.open = function() {
     
     switch ( a - b ) {
       case -1:
-        console.log( "less" );
         this.img.classList.remove( "skills__image--hidden" );
         break;
       case -2: 
-        console.log( "less 2" );
         setTimeout( function() {
           img.classList.remove( "skills__image--hidden" );;
         }, 130 );
         this.img.previousElementSibling.classList.remove( "skills__image--hidden" );
-//        this.img.classList.remove( "skills__image--hidden" );
         break;
       case 1: 
         this.activeImage.classList.add( "skills__image--hidden" );
         break;
       case 2: 
-        console.log( "more 2" );
         setTimeout( function(){
           activeImg.previousElementSibling.classList.add( "skills__image--hidden" );
         }, 130 );
         this.activeImage.classList.add( "skills__image--hidden" );
-//        this.activeImage.previousElementSibling.classList.add( "skills__image--hidden" );
         break;
     }
   }
   
-  if( this.element == this.activePanel ) {
+  
+  if( this.element === this.activePanel ) {
     return;
   }
   else {
-    minus.call( this )
-//    check.apply( this );
+    animateImageChange.call( this )
     changeActivePanel.call( this );
     changeActiveImage.call( this );
     
   }
 }
+
 
 Panel.prototype.mousedownHandler = function( event ) {
   if( event.target.classList.contains( "panel__scrollbar" ) ) {
@@ -138,7 +132,10 @@ Panel.prototype.mousedownHandler = function( event ) {
 }
 
 
-
+/**
+* Activates drag and drop on scrollbar element.
+* @param {object} event
+*/
 Panel.prototype.scrollbarDragAndDrop = function( event ) {
   event.preventDefault();
   
@@ -172,6 +169,11 @@ Panel.prototype.scrollbarDragAndDrop = function( event ) {
   }
 }
 
+
+/**
+* Moves text element (scrolling emulation, works with scrollbarDragAndDrop)
+* @param {number} scrollbarShiftCoord
+*/
 Panel.prototype.moveTextBlock = function( scrollbarShiftCoord ) {
   var shiftRatio = scrollbarShiftCoord / this.VISIBLE_1_PERCENT;
   
@@ -184,6 +186,10 @@ Panel.prototype.activePanel = document.querySelector( '.panel--active' );
 Panel.prototype.activeImage = document.querySelector( ".skills__image--active" );
 
 
+  
+window.Panel = Panel;
+
+})();
 
 
 

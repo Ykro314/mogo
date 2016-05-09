@@ -10,7 +10,10 @@ var AnimatedMenu = function( menuElement ) {
 }
 
 
-
+/**
+* Moves underline to the hovered element
+* @param {object} event
+*/
 AnimatedMenu.prototype.moveUnderline = function( event ) {
   var targetCoords = event.target.getBoundingClientRect();
   var menuCoords = this.element.getBoundingClientRect();
@@ -21,6 +24,11 @@ AnimatedMenu.prototype.moveUnderline = function( event ) {
   this.underline.style.transform = "translateX(" + ( targetCoords.left - menuCoords.left + underlineOffset ) + "px)";
 }
 
+
+/**
+* Hides underline
+* @param {object} event
+*/
 AnimatedMenu.prototype.hideUnderline = function( event ) {
   this.underline.style.transform = "";
   this.underline.style.width = "20px";
@@ -32,11 +40,13 @@ AnimatedMenu.prototype.init = function() {
   this.element.addEventListener( "mouseout", this.mouseOutHandler );
 }
 
+
 AnimatedMenu.prototype.mouseOverHandler = function( event ) {
   if( event.target.tagName.toLowerCase() === "a" ) {
     this.moveUnderline( event );
   }
 }
+
 
 AnimatedMenu.prototype.mouseOutHandler = function( event ) {
   if( event.relatedTarget.classList.contains( "inner" ) ) {

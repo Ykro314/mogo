@@ -6,12 +6,18 @@ function Meter( elements ) {
   this.elements = elements;
   this.dataArray = [];
   this.isLaunched = false;
-  this.scrollTimeout = null;
+//  this.scrollTimeout = null;
   
   this.onScrollHandler = this.onScrollHandler.bind( this );
-  this.debounce = this.debounce.bind( this );
+//  this.debounce = this.debounce.bind( this );
 }
 
+  
+  
+/**
+* Creates object with options for each odometer component and pushes it into array.
+* @param {number} value
+*/
 Meter.prototype.createOdometerData = function( value ) {
   var value = value || 1;
   
@@ -24,6 +30,10 @@ Meter.prototype.createOdometerData = function( value ) {
   }
 }
 
+
+/**
+* Launches odometers using created dataArray.
+*/
 Meter.prototype.launchOdometer = function() {
   this.odometerObjects = new Array( this.dataArray.length );
   
@@ -33,10 +43,15 @@ Meter.prototype.launchOdometer = function() {
   }
 }
 
-Meter.prototype.debounce = function() {
-  clearTimeout( this.scrollTimeout );
-  this.scrollTimeout = setTimeout( this.onScrollHandler, 70 );
-}
+
+/** 
+* Not in usage
+*/
+//Meter.prototype.debounce = function() {
+//  clearTimeout( this.scrollTimeout );
+//  this.scrollTimeout = setTimeout( this.onScrollHandler, 70 );
+//}
+
 
 Meter.prototype.onScrollHandler = function( event ) {
   var el = document.querySelector( ".statistics__number" );
@@ -53,10 +68,15 @@ Meter.prototype.onScrollHandler = function( event ) {
   }
 }
 
+
 Meter.prototype.init = function() {
   document.addEventListener( "scroll", this.onScrollHandler );
 }
 
+
+/**
+* Removes scrollHandler. Prevents launching in future.
+*/
 Meter.prototype.stop = function() {
   document.removeEventListener( "scroll", this.onScrollHandler );
   this.isLaunched = false;
