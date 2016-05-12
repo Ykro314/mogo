@@ -16,6 +16,7 @@ od.init();
 
 
 
+
 /*Scrollbar Panels component*/
 
 function createPanels( panels ) {
@@ -35,5 +36,18 @@ var panelElements = createPanels( document.querySelectorAll( ".panel" ) );
 
 
 /*Carousel component*/
+function createComponents( componentsNodeList, callback ) {
+  var array = [];
 
-var carousel = new Carousel( document.querySelector( ".carousel" ) );
+  for( var i = 0; i < componentsNodeList.length; i++ ) {
+    callback( array, i, componentsNodeList);
+  }
+
+  return array;
+}
+
+function createCarousels( array, index, nodeList ) {
+  array[index] = new Carousel( nodeList[index] );
+}
+
+var carouselsArray = createComponents( document.querySelectorAll( ".carousel" ), createCarousels );

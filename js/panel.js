@@ -5,13 +5,13 @@
 
 function Panel( element ) {
   this.element = element;
-  this.cont = document.querySelector( ".skills" );
-  this.container = element.parentElement; /*not in usage*/
+//  this.cont = document.querySelector( ".skills" );
+//  this.container = element.parentElement; /*not in usage*/
   this.content = element.querySelector( ".panel__content" );
   this.text = element.querySelector( ".panel__text" );
   this.scrollbar = element.querySelector( ".panel__scrollbar" );
   
-  this.imageDataNumber = null;
+//  this.imageDataNumber = null;
   
   this.VISIBLE_HEIGHT = this.content.getBoundingClientRect().height;
   this.VISIBLE_1_PERCENT = this.VISIBLE_HEIGHT / 100;
@@ -35,7 +35,7 @@ Panel.prototype.init = function() {
 
 
 /**
-* Calculates height of scrollbar element considering ratio of visible height and real textElement height.
+* Calculates height of scrollbar element considering ratio of visible height and real textField height.
 */
 Panel.prototype.calculateScrollbarHeight = function(){
   function setScrollbarHeight() {
