@@ -1,0 +1,56 @@
+.clients {
+  padding-top: 110px;
+  padding-bottom: 140px;
+  margin-bottom: 110px;
+  background-image: url("/graph/img/main-clients-background.jpg");
+  background-position: center;
+  background-repeat: repeat-x;
+  .section-title {
+    margin-bottom: 70px;
+  }
+  &__reviews-list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  &__review {
+    position: relative;
+    box-sizing: border-box;
+    width: 45%;
+    padding-left: 140px; 
+    margin-bottom: 65px;
+  }
+  &__photo {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  &__name {
+    font-size: 14px;
+    line-height: 14px;
+    font-family: @f-Montserrat;
+    text-transform: uppercase;
+    margin-bottom: 13px;
+    color: @fc-headings-dark;
+    font-weight: normal;
+  }
+  &__position {
+    position: relative;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    font-size: 15px;
+    line-height: 15px;
+    font-family: @f-Roboto;
+    font-weight: 300;
+    font-style: italic;
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: @c-light-red;
+    }
+  }
+}

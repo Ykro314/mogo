@@ -1,0 +1,104 @@
+.story {
+  margin-bottom: 110px;
+  &__list {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__item {
+    position: relative;
+    transition: all 0.5s;
+    img {
+      position: relative;
+      z-index: 10;
+    }
+    .hover-overlay {
+      position: absolute;
+      top: 0; 
+      left: 0;
+      right: 0;
+      bottom: 4px;
+      z-index: 15;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-image: @grad-top-red-yellow;
+      transform: translate(0px, 0px);
+      transition: all 0.5s ease;
+      opacity: 0;
+      &__icon {
+        margin-bottom: 10px;
+      }
+      &__title {
+        color: white;
+        text-align: center;
+        text-transform: uppercase;
+        font-family: @f-Montserrat;
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 18px;
+      }
+    }
+    &:hover .hover-overlay {
+      opacity: 1;
+      transform: translate(-10px, -10px);
+      box-shadow: 10px 10px 0 0 @c-aquamarine;
+    }
+//    &:before,
+//    &:after {
+//      content: "";
+//      position: absolute;
+//      z-index: 15;
+//      transform: translate(0px, 0px);
+//      transition: all 0.5s ease;
+//      opacity: 0;
+//    }
+//    &:before {
+//      top: 0;
+//      right: 0;
+//      bottom: 4px;
+//      left: 0;
+//      background-image: @grad-top-red-yellow;
+////      box-shadow: 10px 10px 0 0 @c-aquamarine;
+//    }
+//    &:after {
+//      top: ~"calc(50% - 26px)";
+//      left: 0;
+//      width: 100%;
+//      padding-top: 35px;
+//      color: white;
+//      text-align: center;
+//      text-transform: uppercase;
+//      font-family: @f-Montserrat;
+//      font-weight: bold;
+//      font-size: 18px;
+//      line-height: 18px;
+//    }
+//    &:nth-child(1):after {
+//      content: "Super team";
+//      background: url("/graph/img/main-icon-story-hover.png") 
+//        no-repeat 
+//        center top;
+//    }
+//    &:nth-child(2):after {
+//      content: "Amazing works";
+//      background: url("/graph/img/main-icon-story-hover.png") 
+//        no-repeat 
+//        center top;
+//    }
+//    &:nth-child(3):after {
+//      content: "Great service";
+//      background: url("/graph/img/main-icon-story-hover.png") 
+//        no-repeat 
+//        center top;
+//    }
+//    &:hover:before,
+//    &:hover:after {
+//      opacity: 1;
+//      transform: translate(-10px, -10px);
+//    } 
+//    &:hover:before{
+//      box-shadow: 10px 10px 0 0 @c-aquamarine;
+//    }
+  }
+}

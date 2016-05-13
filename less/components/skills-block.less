@@ -1,0 +1,151 @@
+.skills {
+  margin-bottom: 190px;
+  &__feature {
+    display: flex;
+    flex-wrap: wrap;
+//    height: 400px;
+  }
+  &__feature-images {
+    width: 47%;  
+    position: relative;
+    margin-right: 3%; 
+//    overflow: hidden;
+    perspective: 2000px;
+  }
+  &__image {
+    width: 100%; 
+    position: absolute;
+    top: 0;
+    left: 0;
+//    transform: translateY(0);
+    transform: rotateX(0);
+    transform-origin: bottom;
+    transition: all 0.4s ease-in-out;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    opacity: 1;
+    &:nth-child(1) {
+      z-index: 5;
+    }
+    &:nth-child(2) {
+      z-index: 10;
+    }
+    &:nth-child(3) {
+      z-index: 15;
+    }
+    &--hidden {
+//      transform: translateY(100%);
+      transform: rotateX(-120deg);
+      opacity: 0;
+    }
+    &--active {
+      display: block;
+    }
+  }
+  &__feature-panels {
+    width: 50%;
+  }
+  
+  .panel {
+    box-sizing: border-box;
+    height: 58px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    transition: height 0.4s; 
+    border-bottom: 1px solid @bc-grey;
+    will-change: height;
+    &__heading {
+      position: relative;
+      display: flex;
+      padding: 12px 20px 12px 15px;
+      flex-direction: row; 
+      align-items: center;
+      border: 1px solid @bc-grey;
+      cursor: pointer;
+    }
+    &__icon {
+      display: block;
+      width: 32px;
+      height: 32px;
+      margin-right: 15px;
+      background-image: url("/graph/img/spritesheet.png");
+      background-repeat: no-repeat;
+      &--photography {
+        background-position: -141px, -5px;
+      }
+      &--creativity {
+        background-position: -103px -5px;
+      }
+      &--webdesign {
+        background-position: -181px -5px;
+      }
+    }
+    &__content {
+      position: relative;
+      box-sizing: border-box;
+      overflow: hidden;
+//      padding: 14px 41px 14px 19px;
+      height: 160px;
+      font-size: 15px;
+      line-height: 24px;
+      font-family: @f-Roboto;
+      font-style: italic;
+      border: 1px solid @bc-grey;
+      border-top: none; 
+      border-bottom: none;
+    }
+    &__text {
+      padding: 14px 45px 14px 19px;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    &__button {
+      position: absolute;
+      top: ~"calc(50% - 8px)";
+      right: 20px;
+      display: block;
+      width: 30px;
+      height: 20px;
+      &:before {
+        position: absolute;
+        top: ~"calc(50% - 6px)";
+        left: ~"calc(50% - 6px)"; 
+        content: "";
+        width: 12px;
+        height: 12px;
+        border: 3px solid @bc-grey;
+        transform-origin: 25% 25%;
+        transform: rotate(45deg);
+        border-right-color: transparent;
+        border-bottom-color: transparent;
+        transition: all 0.3s;
+      }
+    }
+    &__scrollbar {
+      position: absolute;
+      top: 0;
+      right: 24px;
+      width: 5px;
+      border: 3px solid transparent;
+//      height: 40px;
+      background: @c-aquamarine;
+      border-radius: 7px;
+      cursor: pointer;
+      border-left: 5px solid transparent; 
+      border-right: 5px solid transparent;
+      background-clip: content-box;
+    }
+  }
+  .panel:last-child {
+    margin-bottom: 0;
+  }
+  .panel--active {
+    height: 218px; 
+    .panel__button {
+      &:before {
+        transform: rotate(225deg); 
+      } 
+    }
+  }
+}

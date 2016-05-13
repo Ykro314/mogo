@@ -1,0 +1,73 @@
+.blog {
+  margin-bottom: 115px;
+  &__articles-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__article {
+    position: relative;   
+    width: 380px;
+  }
+  &__article-img {
+    margin-bottom: 15px;
+  }
+  &__article-date {
+    position: absolute;
+    top: 160px;
+    left: -10px;
+    width: 60px;
+    padding: 12px 0;
+    text-align: center;
+    background: #95e1d3;
+    color: white;
+    span {
+      font-size: 15px;
+      font-family: @f-Roboto;
+      font-style: italic;
+      line-height: 15px;
+    }
+    b {
+      display: block;
+      font-family: @f-Montserrat;
+      font-size: 30px;
+      line-height: 30px;
+    }
+  }
+  &__article-title {
+    margin-bottom: 15px;
+    font-weight: normal;
+  }
+  &__article-content {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid @bc-grey;
+  }
+  &__article-views,
+  &__article-comments {
+    display: inline-block;
+    font-family: @f-Roboto;
+    font-size: 15px;
+    font-style: italic;
+    color: @fc-light-grey;
+    .icon {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      background-image: url("/graph/img/spritesheet.png");
+      background-repeat: no-repeat;
+    }
+  }
+  &__article-views {
+    margin-right: 15px;
+    .icon {
+      margin-right: 7px;
+      background-position: -31px 3px;
+    }
+  }
+  &__article-comments {
+    .icon {
+      margin-right: 5px;
+      background-position: -5px 1.5px;
+    }
+  }
+}

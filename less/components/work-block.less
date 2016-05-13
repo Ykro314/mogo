@@ -1,0 +1,68 @@
+.work {
+  max-width: 1500px;
+  margin: 0 auto;
+  margin-bottom: 100px;
+  &__list {
+    display: flex;
+    height: 780px;
+  }
+  &__elem {
+    box-sizing: border-box;
+  }
+  &__wrapper {
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &__wrapper--left {
+    width: 50%;
+    article {
+      width: 50%;
+    }
+    article:nth-child(1) {
+      background: url("/graph/pict/work-image-1.jpg") 
+        no-repeat 
+        center 90%;
+    }
+    article:nth-child(2) {
+      background: url("/graph/pict/work-image-2.jpg") 
+        no-repeat 
+        center bottom;
+    }
+    article:nth-child(3) {
+      background: url("/graph/pict/work-image-3.jpg") 
+        no-repeat 
+        center bottom;
+    }
+    article:nth-child(4) {
+      background: url("/graph/pict/work-image-4.jpg") 
+        no-repeat 
+        center bottom;
+    } 
+  }
+  &__wrapper--center {
+    width: 25%;
+    article {
+      width: 100%;
+      background: url("/graph/pict/work-image-5.jpg") 
+        no-repeat 
+        center center;
+    }
+  }
+  &__wrapper--right {
+    width: 25%;
+    article {
+      width: 100%;
+    }
+    article:nth-child(1) {
+      background: url("/graph/pict/work-image-6.jpg") 
+        no-repeat center 
+        center;
+    }
+    article:nth-child(2) {
+      background: url("/graph/pict/work-image-7.jpg") 
+        no-repeat 
+        center center;
+    }
+  }
+}

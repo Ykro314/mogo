@@ -1,0 +1,31 @@
+.statistics {
+  background: @c-aquamarine;
+  color: white;
+  margin-bottom: 105px;
+  &__list {
+    display: flex;
+  }
+  &__item {
+    flex-basis: 20%;
+    padding: 85px 0;
+    text-align: center;
+    border-left: 1px solid #b5eae0;
+  }
+  &__item:last-child {
+    border-right: 1px solid #b5eae0;
+  }
+  &__number,
+  &__item-title { 
+    display: block;
+    font-family: @f-Montserrat;
+  }
+  &__number {
+    font-size: 72px;
+    line-height: 72px;
+    font-weight: bold;
+  }
+  &__item-title {
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+}
