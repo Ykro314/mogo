@@ -13,6 +13,7 @@
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300italic' rel='stylesheet' type='text/css'>
 <!--    <link rel="stylesheet" href="css/normalize.css">-->
+    <link rel="stylesheet" href="css/mogo-icons.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="node_modules/odometer/themes/odometer-theme-minimal.css">
   </head> 
@@ -27,13 +28,13 @@
           <div class="navigation__logo">MoGo</div>
           <ul class="navigation__list">
             <li class="navigation__item"><a href="">About</a></li>
-            <li class="navigation__item"><a href="">Service</a></li>
             <li class="navigation__item"><a href="">Work</a></li>
+            <li class="navigation__item"><a href="">Service</a></li>
             <li class="navigation__item"><a href="">Blog</a></li>
             <li class="navigation__item"><a href="">Contact</a></li>
             <li class="navigation__item  navigation__item--cart"><a href="#"></a></li>
             <li class="navigation__item  navigation__item--search"><a href=""></a></li>
-            <div class="navigation__line"></div>
+            <li class="navigation__line"></li>
           </ul>
         </nav>
         <h3 class="header__title">Creative Template</h3>
@@ -64,21 +65,21 @@
             <li class="story__item">
               <img src="./graph/pict/stoty-image-1.jpg" alt="story picture">
               <div class="hover-overlay">
-                <img class="hover-overlay__icon" src="graph/img/main-icon-story-hover.png" alt="icon"></img>
+                <img class="hover-overlay__icon" src="graph/img/main-icon-story-hover.png" alt="icon">
                 <p class="hover-overlay__title">Amazing Works</p>
               </div>
             </li>
             <li class="story__item">
               <img src="./graph/pict/stoty-image-2.jpg" alt="story picture">
               <div class="hover-overlay">
-                <img class="hover-overlay__icon" src="graph/img/main-icon-story-hover.png" alt="icon"></img>
+                <img class="hover-overlay__icon" src="graph/img/main-icon-story-hover.png" alt="icon">
                 <p class="hover-overlay__title">Super Team</p>
               </div>
             </li>
             <li class="story__item">
               <img src="./graph/pict/stoty-image-3.jpg" alt="story picture">
               <div class="hover-overlay">
-                <img class="hover-overlay__icon" src="graph/img/main-icon-story-hover.png" alt="icon"></img>
+                <img class="hover-overlay__icon" src="graph/img/main-icon-story-hover.png" alt="icon">
                 <p class="hover-overlay__title">Great Service</p>
               </div>
             </li>
@@ -268,7 +269,14 @@
             <li class="team__item">
               <figure class="team__image-wrap">
                 <img src="./graph/pict/team-image-1.jpg" alt="" class="team__photo">
-                <div class="hover-overlay"></div>
+                <div class="overlay">
+                  <ul class="overlay__list">
+                    <li class="overlay__list-item"><a href="https://www.facebook.com/" class="overlay__social-link  icon-facebook" target="_blank" rel=noopener></a></li>
+                    <li class="overlay__list-item"><a href="https://twitter.com" class="overlay__social-link  icon-twitter" target="_blank" rel=noopener></a></li>
+                    <li class="overlay__list-item"><a href="https://www.pinterest.com" class="overlay__social-link  icon-pinterest" target="_blank" rel=noopener></a></li>
+                    <li class="overlay__list-item"><a href="https://www.instagram.com/" class="overlay__social-link icon-instagram" target="_blank" rel=noopener></a></li>
+                  </ul>
+                </div>
               </figure>
               <h4 class="team__name">Mathew Dix</h4>
               <span class="team__position">Graphic design</span>
@@ -276,7 +284,16 @@
             <li class="team__item">
               <figure class="team__image-wrap">
                 <img src="./graph/pict/team-image-2.jpg" alt="" class="team__photo">
-                <div class="hover-overlay"></div>
+                <div class="overlay">
+                  <ul class="overlay__list">
+                    <li class="overlay__list-item">
+                      <a href="https://www.facebook.com/" class="overlay__social-link  icon-facebook" target="_blank" rel=noopener></a>
+                    </li>
+                    <li class="overlay__list-item"><a href="https://twitter.com" class="overlay__social-link  icon-twitter" target="_blank" rel=noopener></a></li>
+                    <li class="overlay__list-item"><a href="https://www.pinterest.com" class="overlay__social-link  icon-pinterest" target="_blank" rel=noopener></a></li>
+                    <li class="overlay__list-item"><a href="https://www.instagram.com/" class="overlay__social-link icon-instagram" target="_blank" rel=noopener></a></li>
+                  </ul>
+                </div>
               </figure>
               <h4 class="team__name">Pal Campbell</h4>
               <span class="team__position">UI/UX architect</span>
@@ -284,10 +301,17 @@
             <li class="team__item">
               <figure class="team__image-wrap">
                 <img src="./graph/pict/team-image-3.jpg" alt="" class="team__photo">
-                <div class="hover-overlay"></div>
+                <div class="overlay">
+                  <ul class="overlay__list">
+                    <li class="overlay__list-item"><a href="https://www.facebook.com/" class="overlay__social-link  icon-facebook" target="_blank" rel=noopener></a></li>
+                    <li class="overlay__list-item"><a href="https://twitter.com" class="overlay__social-link  icon-twitter" target="_blank" rel=noopener></a></li>
+                    <li class="overlay__list-item"><a href="https://www.pinterest.com" class="overlay__social-link  icon-pinterest" target="_blank" rel=noopener></a></li>
+                    <li class="overlay__list-item"><a href="https://www.instagram.com/" class="overlay__social-link icon-instagram" target="_blank" rel=noopener></a></li>
+                  </ul>
+                </div>
               </figure>
               <h4 class="team__name">Zak Brooks</h4>
-              <span class="team__position">Developer</span>
+              <span class="team__position">Javascript Developer</span>
             </li>
           </ul>
         </div>
@@ -425,10 +449,10 @@
           <div class="blog__articles-wrapper">
             <article class="blog__article">
               <img src="./graph/pict/blog-image-1.jpg" alt="" class="blog__article-img">
-              <date class="blog__article-date">
+              <time class="blog__article-date">
                 <b>12</b> 
                 <span>jan</span>
-              </date>
+              </time >
               <h4 class="blog__article-title">Lorem ipsum dolor sit.</h4>
               <p class="blog__article-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et sequi obcaecati pariatur dolorem voluptatibus, magni dignissimos reiciendis animi fugiat quaerat!</p>
               <span class="blog__article-views">
@@ -442,10 +466,10 @@
             </article>
             <article class="blog__article">
               <img src="./graph/pict/blog-image-2.jpg" alt="" class="blog__article-img">
-              <date class="blog__article-date">
+              <time class="blog__article-date">
                 <b>13</b> 
                 <span>jan</span>
-              </date>
+              </time >
               <h4 class="blog__article-title">Eos sint, quos minima?</h4>
               <p class="blog__article-content">Temporibus eum pariatur ratione, dolor illum blanditiis praesentium qui cumque corrupti, autem culpa similique. Libero explicabo, quam laboriosam eligendi molestias.</p>
               <span class="blog__article-views">
@@ -459,10 +483,10 @@
             </article>
             <article class="blog__article">
               <img src="./graph/pict/blog-image-3.jpg" alt="" class="blog__article-img">
-              <date class="blog__article-date">
+              <time class="blog__article-date">
                 <b>14</b> 
                 <span>jan</span>
-              </date>
+              </time >
               <h4 class="blog__article-title">Earum laboriosam sunt, perspiciatis?</h4>
               <p class="blog__article-content">Sequi ex ullam voluptas quam minus adipisci dolore numquam iusto fugit eligendi vitae quaerat quisquam, esse animi, sapiente ipsa dolorem.</p>
               <span class="blog__article-views">
@@ -517,17 +541,17 @@
             <li class="blogs__item">
               <img src="./graph/pict/footer-blogs-image-1.jpg" alt="">
               <h4 class="blogs__item-name">Lorem ipsum dolor sit amet, consectetur.</h4>
-              <date class="blogs__item-date">21 January 2016</date>
+              <time class="blogs__item-date">21 January 2016</time >
             </li>
             <li class="blogs__item">
               <img src="./graph/pict/footer-blogs-image-2.jpg" alt="">
               <h4 class="blogs__item-name">Minus, maxime alias! Error, facere quae.</h4>
-              <date class="blogs__item-date">23 January 2016</date>
+              <time class="blogs__item-date">23 January 2016</time >
             </li>
             <li class="blogs__item">
               <img src="./graph/pict/footer-blogs-image-3.jpg" alt="">
               <h4 class="blogs__item-name">Molestiae sit, sapiente nihil iusto quas?</h4>
-              <date class="blogs__item-date">25 January 2016</date>
+              <time class="blogs__item-date">25 January 2016</time >
             </li>
           </ul>
         </section>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JavaScriptLibraryMappings">
+    <file url="file://$PROJECT_DIR$" libraries="{mogo node_modules}" />
+    <file url="file://$PROJECT_DIR$/js/animatedMenu.js" libraries="{Meteor project library, Node.js v0.12.7 Core Modules}" />
+  </component>
+</project>

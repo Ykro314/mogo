@@ -1,5 +1,5 @@
 (function(){
-"use strict"
+"use strict";
 
 function Carousel( element ) {
   this.element = element;
@@ -7,7 +7,7 @@ function Carousel( element ) {
   this.slidesWrapper = element.querySelector( ".carousel__wrapper" );
   this.slides = element.querySelectorAll( ".slide" );
   
-  this.slidesShift = 100 / this.slides.length;
+  this.slidesShift = ( 100 / this.slides.length ).toFixed(2);
   this.wrapperWidth = 100 * this.slides.length;
   
   this.activeSlide = 0;
@@ -31,13 +31,14 @@ Carousel.prototype.init = function() {
   this.element.addEventListener( "mousedown", this.mouseDownHandler );
   this.element.addEventListener( "click", this.clickHandler );
   document.addEventListener( "scroll", this.debounce );
-}  
+};
 
 
 Carousel.prototype.debounce = function() {
   clearTimeout( this.debounceTimeout );
   this.debounceTimeout = setTimeout( this.onScrollHandler, 200 );
-}
+};
+
 
 Carousel.prototype.onScrollHandler = function() {
   var topCoords = this.element.getBoundingClientRect().top;
@@ -49,14 +50,22 @@ Carousel.prototype.onScrollHandler = function() {
   else {
     return;
   }
-}
+};
 
+
+/**
+* Refreshes carousel timer timeoutID .
+* Been using when user changes slide with arrows and for initializing slider timeout on the first time.
+*/
 Carousel.prototype.refreshTimeout = function() {
   clearTimeout( this.timeoutID );
   this.timeoutID = setTimeout( this.changeSlideOnTimeout, this.TIMEOUT_DURATION + 5000 );
-}
+};
 
 
+/**
+* Changes slide on timeout. If showed slide is the last - changes to first slide.
+*/
 Carousel.prototype.changeSlideOnTimeout = function() {
   var index = this.activeSlide - 1;
   
@@ -67,8 +76,7 @@ Carousel.prototype.changeSlideOnTimeout = function() {
   this.slidesWrapper.style.transform = "translateX(" + this.slidesShift * index  + "%)";
   this.activeSlide = index;
   this.timeoutID = setTimeout( this.changeSlideOnTimeout, this.TIMEOUT_DURATION );
-}
-
+};
 
 
 Carousel.prototype.mouseDownHandler = function( event ) {
@@ -76,8 +84,7 @@ Carousel.prototype.mouseDownHandler = function( event ) {
     event.target.classList.add( "mousedown" );  
     this.refreshTimeout();
   }
-}
-
+};
 
 /**
 * Sets width parameters of wrapper and slides with consideration amount of existing slides. By default css styles were setted  for using 3 slides.
@@ -88,24 +95,25 @@ Carousel.prototype.setWidthParameters = function() {
   for( var i = 0; i < this.slides.length; i++ ) {
     this.slides[i].style.width = this.slidesShift + "%";
   }
-}
+};
 
 
 Carousel.prototype.clickHandler = function( event ) {
   if( event.target.getAttribute( "data-direction" ) === "left" ) {
-    this.showSlide( this.activeSlide + 1 );
+    this.showSlide( event, this.activeSlide + 1 );
   }
   else if( event.target.getAttribute( "data-direction" ) === "right" ) {
-    this.showSlide( this.activeSlide - 1 );
+    this.showSlide( event, this.activeSlide - 1 );
   }
-}
+};
 
 
 /**
-* Shows choosed slide and adds animation to clicked arrow.
+* Shows chooses slide and adds animation to clicked arrow.
+ * @param {object} event
 * @param {number} index
 */
-Carousel.prototype.showSlide = function( index ) {
+Carousel.prototype.showSlide = function( event, index ) {
   function addArrowAnimation( arrow, className ) {
     
     function removeClassAndListener( event ) {
@@ -128,7 +136,7 @@ Carousel.prototype.showSlide = function( index ) {
     this.slidesWrapper.style.transform = "translateX(" + this.slidesShift * index  + "%)";
     this.activeSlide = index;
   }
-}
+};
   
   
 

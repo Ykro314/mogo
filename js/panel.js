@@ -1,6 +1,6 @@
 (function(){
   
-"use strict"
+"use strict";
 
 
 function Panel( element ) {
@@ -31,7 +31,7 @@ Panel.prototype.init = function() {
   this.calculateScrollbarHeight();
   
   this.element.addEventListener( "click", this.onClickHandler );
-}
+};
 
 
 /**
@@ -51,7 +51,7 @@ Panel.prototype.calculateScrollbarHeight = function(){
   
   this.scrollbar.style.height = setScrollbarHeight.call( this ) + "px";
   
-}
+};
 
 
 Panel.prototype.onClickHandler = function( event ) {
@@ -60,7 +60,7 @@ Panel.prototype.onClickHandler = function( event ) {
   if( this.scrollbar.getBoundingClientRect().height ) {
     this.scrollbar.addEventListener( "mousedown", this.mousedownHandler);
   }
-}
+};
 
 
 /**
@@ -117,10 +117,9 @@ Panel.prototype.open = function() {
     return;
   }
   else {
-    animateImageChange.call( this )
+    animateImageChange.call( this );
     changeActivePanel.call( this );
     changeActiveImage.call( this );
-    
   }
 }
 
@@ -129,7 +128,7 @@ Panel.prototype.mousedownHandler = function( event ) {
   if( event.target.classList.contains( "panel__scrollbar" ) ) {
     this.scrollbarDragAndDrop( event );
   }
-}
+};
 
 
 /**
@@ -138,14 +137,13 @@ Panel.prototype.mousedownHandler = function( event ) {
 */
 Panel.prototype.scrollbarDragAndDrop = function( event ) {
   event.preventDefault();
-  
   var shiftY = event.clientY - this.scrollbar.getBoundingClientRect().top;
   moveScrollbar = moveScrollbar.bind( this );
   
   document.addEventListener( "mousemove", moveScrollbar );
   document.addEventListener( "mouseup", function( event ) {
     document.removeEventListener( "mousemove", moveScrollbar );
-  })
+  });
   
   function moveScrollbar( event ) {
     event.preventDefault();
@@ -155,19 +153,30 @@ Panel.prototype.scrollbarDragAndDrop = function( event ) {
     var coordsRare = event.clientY - containerCoordsTop;
     var scrollbarPositionTop = coordsRare - shiftY;
     
+//    if( scrollbarPositionTop <= 0 ) {
+//      this.scrollbar.style.top = 0 + "px";
+//    }
+//    else if ( scrollbarPositionTop >= ( this.VISIBLE_HEIGHT - scrollbarHeight ) ) {
+//      this.scrollbar.style.top = this.VISIBLE_HEIGHT - scrollbarHeight + "px";
+//    }
+//    else {
+//      this.scrollbar.style.top = scrollbarPositionTop + "px";
+//      
+//      this.moveTextBlock( scrollbarPositionTop );
+//    }
     if( scrollbarPositionTop <= 0 ) {
-      this.scrollbar.style.top = 0 + "px";
+      this.scrollbar.style.transform = "translateY(" + 0 + "px)";
     }
-    else if ( scrollbarPositionTop >= ( this.VISIBLE_HEIGHT - scrollbarHeight) ) {
-      this.scrollbar.style.top = this.VISIBLE_HEIGHT - scrollbarHeight + "px";
+    else if ( scrollbarPositionTop >= ( this.VISIBLE_HEIGHT - scrollbarHeight ) ) {
+      this.scrollbar.style.transform = "translateY(" + this.VISIBLE_HEIGHT - scrollbarHeight + "px)"
     }
     else {
-      this.scrollbar.style.top = scrollbarPositionTop + "px";
+      this.scrollbar.style.transform = "translateY(" + scrollbarPositionTop + "px)";
       
       this.moveTextBlock( scrollbarPositionTop );
     }
   }
-}
+};
 
 
 /**
@@ -176,9 +185,11 @@ Panel.prototype.scrollbarDragAndDrop = function( event ) {
 */
 Panel.prototype.moveTextBlock = function( scrollbarShiftCoord ) {
   var shiftRatio = scrollbarShiftCoord / this.VISIBLE_1_PERCENT;
+  var calculatedShift =- ( shiftRatio * this.REAL_1_PERCENT +  ( shiftRatio / 2 ) );
   
-  this.text.style.top = - ( shiftRatio * this.REAL_1_PERCENT +  ( shiftRatio / 2 ) )  + "px";
-}
+//  this.text.style.top = - ( shiftRatio * this.REAL_1_PERCENT +  ( shiftRatio / 2 ) )  + "px";
+  this.text.style.transform = "translateY(" + calculatedShift + "px)";
+};
 
 
 

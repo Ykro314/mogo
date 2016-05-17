@@ -11,8 +11,8 @@ menu.init();
 
 /*Odometer component*/
 
-var od = new Meter( document.querySelectorAll( ".statistics__number" ) );
-od.init();
+//var od = new Meter( document.querySelectorAll( ".statistics__number" ) );
+//od.init();
 
 
 
