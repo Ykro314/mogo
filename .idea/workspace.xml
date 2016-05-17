@@ -2,21 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="beb7eec3-2ef0-4654-be3c-8541aaf47fb9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/graph/img/main-carousel-img.png" afterPath="$PROJECT_DIR$/graph/img/main-carousel-img.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/animatedMenu.js" afterPath="$PROJECT_DIR$/js/animatedMenu.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/app.js" afterPath="$PROJECT_DIR$/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/less/components/carousel-block.less" afterPath="$PROJECT_DIR$/less/components/carousel-block.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/carousel.js" afterPath="$PROJECT_DIR$/js/carousel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/less/components/normalize.less" afterPath="$PROJECT_DIR$/less/components/normalize.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/panel.js" afterPath="$PROJECT_DIR$/js/panel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/less/components/servises-block.less" afterPath="$PROJECT_DIR$/less/components/servises-block.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/style.css" afterPath="$PROJECT_DIR$/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/less/style.less" afterPath="$PROJECT_DIR$/less/style.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/less/components/team-block.less" afterPath="$PROJECT_DIR$/less/components/team-block.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="mogo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -71,7 +58,7 @@
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.25104603">
-              <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+              <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -786,7 +773,7 @@
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.25104603">
-          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+          <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
           <folding />
         </state>
       </provider>
