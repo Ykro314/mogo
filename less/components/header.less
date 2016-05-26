@@ -1,7 +1,7 @@
 .header {
   padding-top: 25px;
   margin-bottom: 90px;
-  background-image: url("/graph/img/header-background.jpg");
+  background-image: url("../graph/img/header-background.jpg");
   background-color: @c-light-red;
   background-repeat: no-repeat;
   background-position:  top center;
@@ -25,7 +25,6 @@
     position: relative;
     margin: 0 auto;
     width: 80%;
-    margin: 0;
     margin-left: 10%;
     margin-right: 10%;
     margin-bottom: 50px;
@@ -40,7 +39,7 @@
     &:after {
       content: "";
       position: absolute;
-      bottom: 0px;
+      bottom: 0;
       left: ~"calc(50% - 30px)";
       width: 60px;
       height: 3px;
@@ -98,7 +97,7 @@
   &__list {
     position: relative;
     display: flex;
-    width: 617px;
+    width: 640px;
     justify-content: space-between;
     overflow: hidden;
   }
@@ -111,29 +110,37 @@
       text-transform: uppercase;
       color: white;
       padding: 10px;
+      //padding-bottom: 20px;
       transition: color 0.3s;
       &:hover {
         color: @c-light-yellow;
       }
     }
   }
-  &__item--cart a,
-  &__item--search a{
-    display: block;
-    width: 25px;
-    height: 25px;
-  }
-  &__item--cart a {
-    background: url("/graph/img/navigation-cart-icon.png") no-repeat center 0;
-  }
-  &__item--search a {
-    background: url("/graph/img/navigation-search-icon.png") no-repeat center 0; 
-  }
+  //&__item--cart a,
+  //&__item--search a{
+  //  display: block;
+  //  width: 25px;
+  //  height: 25px;
+  //  margin-top: -10px;
+  //  padding-left: -10px;
+  //  padding-right: -10px;
+  //}
+  //&__item--cart a:before,
+  //&__item--search a:before {
+  //  font-size: 18px;
+  //}
+  //&__item--cart a {
+  //  background: url("../graph/img/navigation-cart-icon.png") no-repeat center 0;
+  //}
+  //&__item--search a {
+  //  background: url("../graph/img/navigation-search-icon.png") no-repeat center 0;
+  //}
   &__line {
     position: absolute;
-    bottom: 15px;
+    bottom: 0px;
     left: -50px;
-    width: 0px;
+    width: 0;
     height: 4px;
     background: @c-light-yellow;
     transition: all 0.5s ease-out;

@@ -291,7 +291,7 @@ p {
 .section-title__intro:after {
   content: "";
   position: absolute;
-  bottom: 0px;
+  bottom: 0;
   left: calc(50% - 30px);
   width: 60px;
   height: 3px;
@@ -339,7 +339,6 @@ p {
   position: relative;
   margin: 0 auto;
   width: 80%;
-  margin: 0;
   margin-left: 10%;
   margin-right: 10%;
   margin-bottom: 50px;
@@ -355,7 +354,7 @@ p {
 .header__intro:after {
   content: "";
   position: absolute;
-  bottom: 0px;
+  bottom: 0;
   left: calc(50% - 30px);
   width: 60px;
   height: 3px;
@@ -414,7 +413,7 @@ p {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  width: 617px;
+  width: 640px;
   -webkit-justify-content: space-between;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -435,23 +434,11 @@ p {
 .navigation__item a:hover {
   color: #fce38a;
 }
-.navigation__item--cart a,
-.navigation__item--search a {
-  display: block;
-  width: 25px;
-  height: 25px;
-}
-.navigation__item--cart a {
-  background: url("../graph/img/navigation-cart-icon.png") no-repeat center 0;
-}
-.navigation__item--search a {
-  background: url("../graph/img/navigation-search-icon.png") no-repeat center 0;
-}
 .navigation__line {
   position: absolute;
-  bottom: 15px;
+  bottom: 0px;
   left: -50px;
-  width: 0px;
+  width: 0;
   height: 4px;
   background: #fce38a;
   transition: all 0.5s ease-out;
@@ -1110,11 +1097,12 @@ p {
   display: flex;
 }
 .team__image-wrap .overlay__list-item {
+  position: relative;
   width: 55px;
   height: 56px;
   border-right: 1px solid #f38181;
   background: #fce38a;
-  transition: all 0.3s;
+  transition: all 0.2s;
   font-size: 35px;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1137,7 +1125,7 @@ p {
 }
 .team__image-wrap .overlay__social-link {
   color: #f38181;
-  transition: color 0.3s;
+  transition: all 0.3s;
 }
 .team__image-wrap:hover .overlay {
   opacity: 1;
@@ -1192,6 +1180,60 @@ p {
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
+}
+.work__elem {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+.work__elem .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  background: linear-gradient(to top, rgba(252, 227, 138, 0.8), rgba(243, 129, 129, 0.8));
+  color: white;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  transition: all 0.4s ease-out;
+  opacity: 0;
+}
+.work__elem .overlay__icon {
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 10px;
+  background: url("../graph/spritesource/spritesheet.png") no-repeat -220px 3px;
+}
+.work__elem .overlay__title {
+  padding: 0 10px;
+  margin-bottom: 7px;
+  color: currentColor;
+  font-size: 14px;
+}
+.work__elem .overlay__descr {
+  padding: 0 10px;
+  color: currentColor;
+  font-style: italic;
+}
+.work__elem:hover .overlay {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  opacity: 1;
 }
 .work__wrapper--left {
   width: 50%;

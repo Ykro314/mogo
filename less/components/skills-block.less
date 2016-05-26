@@ -68,7 +68,7 @@
       width: 32px;
       height: 32px;
       margin-right: 15px;
-      background-image: url("/graph/img/spritesheet.png");
+      background-image: url("../graph/img/spritesheet.png");
       background-repeat: no-repeat;
       &--photography {
         background-position: -141px, -5px;
@@ -141,7 +141,8 @@
     margin-bottom: 0;
   }
   .panel--active {
-    height: 218px; 
+    //animation: open-panel 0.7s ease-out;
+    height: 218px;
     .panel__button {
       &:before {
         transform: rotate(225deg); 
@@ -149,3 +150,15 @@
     }
   }
 }
+
+//@keyframes open-panel {
+//  0% {
+//    height: 58px;
+//  }
+//  70% {
+//    height: 250px;
+//  }
+//  100% {
+//    height: 218px;
+//  }
+//}

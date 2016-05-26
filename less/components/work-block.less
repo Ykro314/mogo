@@ -14,28 +14,74 @@
     display: flex;
     flex-wrap: wrap;
   }
+  &__elem {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: @grad-top-red-yellow;
+      color: white;
+      transform: translateX(-100%);
+      transition: all 0.4s ease-out;
+      opacity: 0;
+      &__icon {
+        display: block;
+        width: 40px;
+        height: 40px;
+        margin-bottom: 10px;
+        background: url("../graph/spritesource/spritesheet.png")
+        no-repeat
+        -220px 3px;
+      }
+      &__title {
+        padding: 0 10px;
+        margin-bottom: 7px;
+        color: currentColor;
+        font-size: 14px;
+      }
+      &__descr {
+        padding: 0 10px;
+        color: currentColor;
+        font-style: italic;
+      }
+    }
+    &:hover .overlay {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
   &__wrapper--left {
     width: 50%;
     article {
       width: 50%;
     }
     article:nth-child(1) {
-      background: url("/graph/pict/work-image-1.jpg") 
+      background: url("../graph/pict/work-image-1.jpg")
         no-repeat 
         center 90%;
     }
     article:nth-child(2) {
-      background: url("/graph/pict/work-image-2.jpg") 
+      background: url("../graph/pict/work-image-2.jpg")
         no-repeat 
         center bottom;
     }
     article:nth-child(3) {
-      background: url("/graph/pict/work-image-3.jpg") 
+      background: url("../graph/pict/work-image-3.jpg")
         no-repeat 
         center bottom;
     }
     article:nth-child(4) {
-      background: url("/graph/pict/work-image-4.jpg") 
+      background: url("../graph/pict/work-image-4.jpg")
         no-repeat 
         center bottom;
     } 
@@ -44,7 +90,7 @@
     width: 25%;
     article {
       width: 100%;
-      background: url("/graph/pict/work-image-5.jpg") 
+      background: url("../graph/pict/work-image-5.jpg")
         no-repeat 
         center center;
     }
@@ -55,12 +101,12 @@
       width: 100%;
     }
     article:nth-child(1) {
-      background: url("/graph/pict/work-image-6.jpg") 
+      background: url("../graph/pict/work-image-6.jpg")
         no-repeat center 
         center;
     }
     article:nth-child(2) {
-      background: url("/graph/pict/work-image-7.jpg") 
+      background: url("../graph/pict/work-image-7.jpg")
         no-repeat 
         center center;
     }

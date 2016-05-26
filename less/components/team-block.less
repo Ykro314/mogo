@@ -31,11 +31,12 @@
         display: flex;
       }
       &__list-item {
+        position: relative;
         width: 55px;
         height: 56px;
         border-right: 1px solid @c-light-red;
         background: @c-light-yellow;
-        transition: all 0.3s;
+        transition: all 0.2s;
         font-size: 35px;
         display: flex;
         justify-content: center;
@@ -49,11 +50,30 @@
         &:hover .overlay__social-link {
           color: white;
         }
+        //&:hover .hidden {
+        //  transform: scaleY(1);
+        //  opacity: 1;
+        //}
       }
       &__social-link {
         color: @c-light-red;
-        transition: color 0.3s;
+        transition: all 0.3s;
       }
+      //.hidden {
+      //  transform: scaleY(0);
+      //  position: absolute;
+      //  display: flex;
+      //  align-items: center;
+      //  justify-content: center;
+      //  top: 0;
+      //  left: 0;
+      //  color: white;
+      //  background: @c-light-red;
+      //  transform-origin: center;
+      //  width: 55px;
+      //  height: 56px;
+      //  opacity: 0;
+      //}
     }
     &:hover .overlay {
       opacity: 1;
