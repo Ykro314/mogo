@@ -7,44 +7,61 @@ function GalleryOverlay( element ) {
   this.content = element.querySelectorAll( ".gallery-overlay--animate" );
 } 
   
+  
+  
 GalleryOverlay.prototype.show = function() {
+  
+  function showOverlayAnimateContent() {
+    this.element.classList.add( "color" );
+    this.animateOvelayContent( 400 );
+  }
+  showOverlayAnimateContent = showOverlayAnimateContent.bind( this );
+  
+  
   this.element.classList.add( "showed" );
-  var self = this;
-  setTimeout( function() {
-    self.element.classList.add( "color" );
-    self.animateOvelayContent( 400 );
-  }, 100);
   this.blockBodyOverflow();
+  setTimeout( showOverlayAnimateContent, 100);
 }
+
 
 GalleryOverlay.prototype.hide = function() {
-  var self = this;
   
-  this.element.classList.remove( "color" );
-  setTimeout( function() {
-    self.restoreBodyOverflow();
-  }, 200 );
-  this.animateOvelayContent();
+//  function hideOverlay() {
+//    this.restoreBodyOverflow();
+////    this.element.classList.remove( "color" );
+//  }
+//  hideOverlay = hideOverlay.bind( this );
+  
+  this.animateOvelayContent( 100 );
+  setTimeout( this.restoreBodyOverflow, 900 );
 }
 
+
 GalleryOverlay.prototype.animateOvelayContent = function( delay ) {
-  delay = delay || 100;
-  var self = this;
-  setTimeout( function() {
-    for( var i = 0; i < self.content.length; i++ ) {
-      self.content[i].classList.toggle( "animate" );
+  
+  function animateContent() {
+    for( var i = 0; i < this.content.length; i++ ) {
+      this.content[i].classList.toggle( "animate" );
     }
-  }, delay );
+  }
+  animateContent = animateContent.bind( this );
+  delay = delay || 50;
+  
+  setTimeout( animateContent, delay );
 }
+
 
 GalleryOverlay.prototype.blockBodyOverflow = function() {
   document.body.classList.add( "overflow-blocked" );
 }
 
+
 GalleryOverlay.prototype.restoreBodyOverflow = function() {
   document.body.classList.remove( "overflow-blocked" );
 }
   
+
+
 window.GalleryOverlay = GalleryOverlay;
   
 })();

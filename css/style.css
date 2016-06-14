@@ -1002,9 +1002,6 @@ p {
   display: flex;
   height: 780px;
 }
-.work__elem {
-  box-sizing: border-box;
-}
 .work__wrapper {
   height: 100%;
   display: flex;
@@ -1013,8 +1010,10 @@ p {
 .work__elem {
   position: relative;
   overflow: hidden;
+  transform-origin: top left;
+  box-sizing: border-box;
   cursor: pointer;
-  transition: all 0.4s;
+  transition: all 0.5s ease-out;
 }
 .work__elem .overlay {
   position: absolute;
@@ -1402,22 +1401,8 @@ footer .inner {
   background-color: transparent;
   display: none;
   z-index: 5;
-  transition: all 0.6s;
-}
-.gallery-overlay__img-wrapper {
-  margin: 0;
-  padding: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 50%;
-  background: red;
-  height: 100%;
-}
-.gallery-overlay__img {
-  position: absolute;
-  top: 50px;
-  left: 50px;
+  opacity: 0;
+  transition: all 0.4s;
 }
 .gallery-overlay__close-btn {
   position: fixed;
@@ -1458,24 +1443,29 @@ footer .inner {
 .gallery-overlay--animate {
   opacity: 0;
   transform: translateY(-20px);
-  transition: all 0.5s;
+  transition: all 0.4s;
+  transition-timing-function: ease-in;
 }
 .animate {
   opacity: 1;
   transform: translateY(0);
+  transition-timing-function: ease-out;
+  transition-duration: 0.5s;
 }
 .showed {
   display: flex;
 }
 .color {
   background-color: #F2E394;
+  opacity: 1;
 }
 .scale {
   transform-origin: center;
   transform: scale(0);
   opacity: 0;
+  transition-timing-function: ease-in;
 }
-.oveflow-blocked {
+.overflow-blocked {
   overflow: hidden;
   padding-right: 17px;
 }

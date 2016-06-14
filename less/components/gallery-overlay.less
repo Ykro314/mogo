@@ -6,26 +6,27 @@
   bottom: 0;
   justify-content: flex-end;
   align-items: center;
+//  background: red;
   background-color: transparent;
   display: none;
   z-index: 5;
-//  opacity: 0;
-  transition: all 0.6s;
-  &__img-wrapper {
-    margin: 0;
-    padding: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 50%;
-    background: red;
-    height: 100%;
-  }
-  &__img {
-    position: absolute;
-    top: 50px;
-    left: 50px;
-  }
+  opacity: 0;
+  transition: all 0.4s;
+//  &__img-wrapper {
+//    margin: 0;
+//    padding: 0;
+//    position: absolute;
+//    top: 0;
+//    left: 0;
+//    width: 50%;
+//    background: red;
+//    height: 100%;
+//  }
+//  &__img {
+//    position: absolute;
+//    top: 50px;
+//    left: 50px;
+//  }
   &__close-btn {
     position: fixed;
     z-index: 20;
@@ -65,7 +66,8 @@
   &--animate {
     opacity: 0;
     transform: translateY(-20px);
-    transition: all 0.5s;
+    transition: all 0.4s;
+    transition-timing-function: ease-in;
   }
 }
 
@@ -73,23 +75,29 @@
 .animate {
   opacity: 1;
   transform: translateY(0); 
+  transition-timing-function: ease-out;
+  transition-duration: 0.5s;
 }
 
 
 .showed { 
   display: flex;
 } 
+
 .color {
   background-color: #F2E394;
+  opacity: 1;
 }
 
 .scale {
   transform-origin: center;
   transform: scale(0);
   opacity: 0;
+  transition-timing-function: ease-in;
+//  transition-duration: 2s;
 }
 
-.oveflow-blocked {
+.overflow-blocked {
   overflow: hidden;
   padding-right: 17px;
 }
