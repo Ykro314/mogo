@@ -51,3 +51,8 @@ function createCarousels( array, index, nodeList ) {
 }
 
 var carouselsArray = createComponents( document.querySelectorAll( ".carousel" ), createCarousels );
+
+
+
+var gallery = new Gallery( document.querySelector( ".work__list" ) );
+gallery.init();

@@ -1,0 +1,95 @@
+.gallery-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: transparent;
+  display: none;
+  z-index: 5;
+//  opacity: 0;
+  transition: all 0.6s;
+  &__img-wrapper {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    background: red;
+    height: 100%;
+  }
+  &__img {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+  }
+  &__close-btn {
+    position: fixed;
+    z-index: 20;
+    top: 22px;
+    right: 50px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    &:before,
+    &:after {
+      position: absolute;
+      top: 3px;
+      left: ~"calc(50% - 2px)";
+      width: 3px; 
+      height: 25px;
+      content: "";
+      background: black;
+      transition: background 0.2s;
+    }
+    &:before { 
+      transform: rotate(45deg);
+    }
+    &:after {
+      transform: rotate(-45deg);
+    }
+    &:hover:before,
+    &:hover:after {
+      background: white;
+    }
+  }
+  &__content {
+    width: 45%;
+    box-sizing: border-box;
+    color: black;
+    padding-right: 40px;
+  }
+  &--animate {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.5s;
+  }
+}
+
+
+.animate {
+  opacity: 1;
+  transform: translateY(0); 
+}
+
+
+.showed { 
+  display: flex;
+} 
+.color {
+  background-color: #F2E394;
+}
+
+.scale {
+  transform-origin: center;
+  transform: scale(0);
+  opacity: 0;
+}
+
+.oveflow-blocked {
+  overflow: hidden;
+  padding-right: 17px;
+}
