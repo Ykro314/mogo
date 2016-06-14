@@ -1391,6 +1391,8 @@ footer .inner {
   color: #999999;
 }
 .gallery-overlay {
+  display: none;
+  z-index: 5;
   position: fixed;
   top: 0;
   left: 0;
@@ -1398,11 +1400,14 @@ footer .inner {
   bottom: 0;
   justify-content: flex-end;
   align-items: center;
-  background-color: transparent;
-  display: none;
-  z-index: 5;
+  background-color: #9affdd;
   opacity: 0;
   transition: all 0.4s;
+}
+.gallery-overlay h2 {
+  font-family: "Kaushan Script", cursive;
+  font-size: 28px;
+  margin-bottom: 15px;
 }
 .gallery-overlay__close-btn {
   position: fixed;
@@ -1421,7 +1426,7 @@ footer .inner {
   width: 3px;
   height: 25px;
   content: "";
-  background: black;
+  background: rgba(0, 72, 65, 0.91);
   transition: background 0.2s;
 }
 .gallery-overlay__close-btn:before {
@@ -1445,6 +1450,8 @@ footer .inner {
   transform: translateY(-20px);
   transition: all 0.4s;
   transition-timing-function: ease-in;
+  color: rgba(0, 72, 65, 0.91);
+  text-shadow: 1px 1px 0 white;
 }
 .animate {
   opacity: 1;
@@ -1456,7 +1463,6 @@ footer .inner {
   display: flex;
 }
 .color {
-  background-color: #F2E394;
   opacity: 1;
 }
 .scale {

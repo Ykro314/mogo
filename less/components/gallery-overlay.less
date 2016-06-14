@@ -1,4 +1,6 @@
 .gallery-overlay {
+  display: none;
+  z-index: 5;
   position: fixed;
   top: 0;
   left: 0;
@@ -6,27 +8,14 @@
   bottom: 0;
   justify-content: flex-end;
   align-items: center;
-//  background: red;
-  background-color: transparent;
-  display: none;
-  z-index: 5;
+  background-color: #9affdd;
   opacity: 0;
   transition: all 0.4s;
-//  &__img-wrapper {
-//    margin: 0;
-//    padding: 0;
-//    position: absolute;
-//    top: 0;
-//    left: 0;
-//    width: 50%;
-//    background: red;
-//    height: 100%;
-//  }
-//  &__img {
-//    position: absolute;
-//    top: 50px;
-//    left: 50px;
-//  }
+  h2 {
+    font-family: @f-Kaushan;
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
   &__close-btn {
     position: fixed;
     z-index: 20;
@@ -43,7 +32,7 @@
       width: 3px; 
       height: 25px;
       content: "";
-      background: black;
+      background: rgba(0, 72, 65, 0.91);
       transition: background 0.2s;
     }
     &:before { 
@@ -68,6 +57,8 @@
     transform: translateY(-20px);
     transition: all 0.4s;
     transition-timing-function: ease-in;
+    color: rgba(0, 72, 65, 0.91);
+    text-shadow: 1px 1px 0 white;
   }
 }
 
@@ -85,7 +76,6 @@
 } 
 
 .color {
-  background-color: #F2E394;
   opacity: 1;
 }
 
@@ -94,7 +84,6 @@
   transform: scale(0);
   opacity: 0;
   transition-timing-function: ease-in;
-//  transition-duration: 2s;
 }
 
 .overflow-blocked {

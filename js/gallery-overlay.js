@@ -5,6 +5,8 @@ function GalleryOverlay( element ) {
   this.element = element;
   this.closeBtn = element.querySelector( ".gallery-overlay__close-btn" );
   this.content = element.querySelectorAll( ".gallery-overlay--animate" );
+  
+  this.currentData = null;
 } 
   
   
@@ -17,7 +19,7 @@ GalleryOverlay.prototype.show = function() {
   }
   showOverlayAnimateContent = showOverlayAnimateContent.bind( this );
   
-  
+  this.fillOverlayWithData();
   this.element.classList.add( "showed" );
   this.blockBodyOverflow();
   setTimeout( showOverlayAnimateContent, 100);
@@ -36,6 +38,17 @@ GalleryOverlay.prototype.hide = function() {
   setTimeout( this.restoreBodyOverflow, 900 );
 }
 
+
+GalleryOverlay.prototype.fillOverlayWithData = function() {
+  if( !this.currentData ) {
+    return;
+  }
+  var header = this.element.querySelector( "h2" );
+  var body = this.element.querySelector( "p" );
+  
+  header.textContent = this.currentData.header;
+  body.textContent = this.currentData.body;
+}
 
 GalleryOverlay.prototype.animateOvelayContent = function( delay ) {
   

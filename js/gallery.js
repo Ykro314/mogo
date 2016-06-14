@@ -7,6 +7,8 @@ function Gallery( element ) {
   this.images = element.querySelectorAll( ".work__elem" );
   this.overlay = new GalleryOverlay( document.querySelector( ".gallery-overlay" ) );
   
+  this.data = imagesData;
+  
   this.activeImage = null;
   
   this.clickOnImageHandler = this.clickOnImageHandler.bind( this );
@@ -29,11 +31,21 @@ Gallery.prototype.clickOnCloseBtnHandler = function( event ) {
   this.showGallery( event );
 }
 
-
+Gallery.prototype.findData = function( img ) {
+  var id = img.getAttribute( "data-id" );
+  var data;
+  
+  for( var i = 0; i < this.data.length; i++ ) {
+    if( i == id - 1 ) {
+      return this.data[i];
+    }
+  }
+}
 
 Gallery.prototype.showImage = function( event ) {
   this.activeImage = event.target;
   
+  this.overlay.currentData = this.findData( event.target );
   this.toggleImagesState( this.images, "add" );
   this.transformClickedImage( event.target );
   
@@ -53,7 +65,6 @@ Gallery.prototype.showGallery = function( event ) {
       function disableOverlay( event ) {
         this.overlay.element.classList.remove( "showed" );
         image.style.zIndex = 0;
-//        this.overlay.restoreBodyOverflow();
       }
       disableOverlay = disableOverlay.bind( this );
       
