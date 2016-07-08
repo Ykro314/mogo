@@ -7,7 +7,7 @@ function Gallery( element ) {
   this.images = element.querySelectorAll( ".work__elem" );
   this.overlay = new GalleryOverlay( document.querySelector( ".gallery-overlay" ) );
   
-  this.data = imagesData;
+  this.data = imagesData; // try to rename
   
   this.activeImage = null;
   

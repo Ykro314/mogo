@@ -54,5 +54,13 @@ var carouselsArray = createComponents( document.querySelectorAll( ".carousel" ),
 
 
 
+/* Gallery component */
 var gallery = new Gallery( document.querySelector( ".work__list" ) );
 gallery.init();
+
+
+
+/* Blog component */
+
+var blog = new Blog( document.querySelector( ".blog" ) );
+blog.init();

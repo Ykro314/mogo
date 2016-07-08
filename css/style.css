@@ -1154,6 +1154,10 @@ p {
 .blog__article {
   position: relative;
   width: 380px;
+  cursor: pointer;
+}
+.blog__article * {
+  transition: all 0.5s;
 }
 .blog__article-img {
   margin-bottom: 15px;
@@ -1216,17 +1220,29 @@ p {
   margin-right: 5px;
   background-position: -5px 1.5px;
 }
+.expand {
+  transform-origin: top left;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background: white;
+}
+.fade-out {
+  transform: translateY(-20px);
+  opacity: 0;
+}
 .map {
   margin-bottom: 70px;
   width: 100%;
   height: 200px;
   background: lightgrey;
 }
-footer {
+footer.inner {
   padding-top: 70px;
   margin-bottom: 70px;
-}
-footer .inner {
   display: flex;
   justify-content: space-between;
 }
