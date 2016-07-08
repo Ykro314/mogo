@@ -1,0 +1,47 @@
+.blog-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: white;
+  padding: 40px 60px 30px 30px; 
+  &--showed {
+    display: flex;
+    z-index: 100;
+  }
+  &__content {
+    color: black;
+  }
+  &__close-btn {
+    position: fixed;
+    z-index: 20;
+    top: 22px;
+    right: 30px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    &:before,
+    &:after {
+      position: absolute;
+      top: 3px;
+      left: ~"calc(50% - 2px)";
+      width: 3px; 
+      height: 25px;
+      content: "";
+      background: rgba(0, 72, 65, 0.91);
+      transition: background 0.2s;
+    }
+    &:before { 
+      transform: rotate(45deg);
+    }
+    &:after {
+      transform: rotate(-45deg);
+    }
+    &:hover:before,
+    &:hover:after {
+      background: red;
+    }
+  }
+}

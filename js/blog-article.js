@@ -6,11 +6,13 @@ function BlogArticle( element ){
   
   
   this.expander = null;
+//  this.expander = this.article.querySelector( ".expand" );
   this.coords = null;
   
   
   this.clickHandler = this.clickHandler.bind( this );
-  
+  this.dispatchShowEvent = this.dispatchShowEvent.bind( this );
+  this.animateContent = this.animateContent.bind( this );
   
   this.init();
 }
@@ -33,6 +35,7 @@ BlogArticle.prototype.show = function() {
   this.animateContent();
   this.createExpandElement();
   this.expand();
+//  this.dispatchShowEvent();
 }
 
 
@@ -74,11 +77,12 @@ BlogArticle.prototype.expand = function() {
   }
   pushStyles = pushStyles.bind( this );
   
+  
   this.coords = this.article.getBoundingClientRect();
 
   var translateCoords = calcTranslateCoords( this.coords );
   var scaleCoords = calcScale( this.coords );
-  setTimeout( pushStyles, 500 );
+  setTimeout( pushStyles, 800 );
 }
 
 BlogArticle.prototype.createExpandElement = function() {
@@ -87,9 +91,23 @@ BlogArticle.prototype.createExpandElement = function() {
   this.article.appendChild( expander );
 
   this.expander = expander;
+  this.expander.addEventListener( "transitionend", this.dispatchShowEvent );
 }
 
+BlogArticle.prototype.dispatchShowEvent = function( event ) {
+  console.log( "dispatching" );
+  blog.activeArticle = this;
+  var showEvent = new Event( "showed" );
+  window.dispatchEvent( showEvent );
+  console.log( blog );
+  this.expander.removeEventListener( "transitionend", this.dispatchShowEvent );
+}
 
+BlogArticle.prototype.hide = function() {
+  this.expander.style.transform = "";
+  this.expander.style.zIndex = "";
+  setTimeout( this.animateContent, 600 );
+}
 
 window.BlogArticle = BlogArticle;
   

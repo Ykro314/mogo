@@ -1230,9 +1230,60 @@ p {
   height: 100%;
   background: white;
 }
+.animate-op {
+  opacity: 1;
+  transform: translateY(0);
+}
 .fade-out {
   transform: translateY(-20px);
   opacity: 0;
+}
+.blog-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: white;
+  padding: 40px 60px 30px 30px;
+}
+.blog-overlay--showed {
+  display: flex;
+  z-index: 100;
+}
+.blog-overlay__content {
+  color: black;
+}
+.blog-overlay__close-btn {
+  position: fixed;
+  z-index: 20;
+  top: 22px;
+  right: 30px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+.blog-overlay__close-btn:before,
+.blog-overlay__close-btn:after {
+  position: absolute;
+  top: 3px;
+  left: calc(50% - 2px);
+  width: 3px;
+  height: 25px;
+  content: "";
+  background: rgba(0, 72, 65, 0.91);
+  transition: background 0.2s;
+}
+.blog-overlay__close-btn:before {
+  transform: rotate(45deg);
+}
+.blog-overlay__close-btn:after {
+  transform: rotate(-45deg);
+}
+.blog-overlay__close-btn:hover:before,
+.blog-overlay__close-btn:hover:after {
+  background: red;
 }
 .map {
   margin-bottom: 70px;
