@@ -6,13 +6,16 @@
   right: 0;
   bottom: 0;
   background: white;
-  padding: 40px 60px 30px 30px; 
+  padding: 60px 60px 30px 60px; 
+  overflow: auto;
+  & [data-animate] {
+    opacity: 0;
+    transform: translateY( 20px );
+    transition: all 0.4s ease;
+  }
   &--showed {
     display: flex;
     z-index: 100;
-  }
-  &__content {
-    color: black;
   }
   &__close-btn {
     position: fixed;
@@ -28,9 +31,9 @@
       top: 3px;
       left: ~"calc(50% - 2px)";
       width: 3px; 
-      height: 25px;
+      height: 20px;
       content: "";
-      background: rgba(0, 72, 65, 0.91);
+      background: lightgrey;
       transition: background 0.2s;
     }
     &:before { 
@@ -41,7 +44,74 @@
     }
     &:hover:before,
     &:hover:after {
-      background: red;
+      background: grey;
     }
+  }
+  .blog-animate {
+    opacity: 1;
+    transform: translateY( 0 );
+  }
+}
+
+.blog-content {
+  color: @fc-light-grey;
+  text-align: center;
+  &__category {
+    display: block;
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 15px;
+    font-family: @f-Kaushan;
+//    &[data-animate] {
+//      transform: translateX( -40px );
+//    }
+//    &.blog-animate {
+//      transform: translateX( 0 );
+//    }
+  }
+  &__header {
+    font-size: 37px;
+    padding-bottom: 40px;
+    margin-bottom: 40px;
+    text-align: center;
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: ~"calc(50% - 50px)";
+      width: 100px;
+      height: 3px;
+      background: @c-light-red;
+    }
+  }
+  &__image {
+    display: inline-block;
+    border-radius: 5px;
+    width: 380px;
+    height: 240px;
+    margin-bottom: 30px;
+    background: url("/graph/pict/blog-image-1.jpg") no-repeat 0 0;
+    &[data-animate] {
+      transform: scale( 0 );
+    }
+    &.blog-animate {
+      transform: scale( 1 );
+    }
+  }
+  &__text {
+    text-align: justify;
+    padding-bottom: 20px;
+    border-bottom: 1px solid grey;
+    &[data-animate] {
+      transform: translateY( 20px );
+    }
+    &.blog-animate {
+      transform: translateY( 0 );
+    }
+  }
+  p {
+    color: inherit;
+    margin-bottom: 15px;
+    line-height: 25px;
   }
 }

@@ -1,9 +1,9 @@
 (function(){
 "use strict";
   
-function BlogArticle( element ){
+function BlogArticle( element, data ){
   this.article = element;
-  
+  this.data = data;
   
   this.expander = null;
 //  this.expander = this.article.querySelector( ".expand" );
@@ -33,7 +33,9 @@ BlogArticle.prototype.clickHandler = function( event ) {
 
 BlogArticle.prototype.show = function() {
   this.animateContent();
-  this.createExpandElement();
+  if( !this.expander ) {
+    this.createExpandElement();
+  }
   this.expand();
 //  this.dispatchShowEvent();
 }
@@ -83,6 +85,7 @@ BlogArticle.prototype.expand = function() {
   var translateCoords = calcTranslateCoords( this.coords );
   var scaleCoords = calcScale( this.coords );
   setTimeout( pushStyles, 800 );
+  this.expander.addEventListener( "transitionend", this.dispatchShowEvent )
 }
 
 BlogArticle.prototype.createExpandElement = function() {
@@ -91,7 +94,6 @@ BlogArticle.prototype.createExpandElement = function() {
   this.article.appendChild( expander );
 
   this.expander = expander;
-  this.expander.addEventListener( "transitionend", this.dispatchShowEvent );
 }
 
 BlogArticle.prototype.dispatchShowEvent = function( event ) {
