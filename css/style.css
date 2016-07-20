@@ -511,7 +511,7 @@ p {
   align-items: center;
   background-image: linear-gradient(to top, rgba(252, 227, 138, 0.8), rgba(243, 129, 129, 0.8));
   transform: translate(0px, 0px);
-  transition: all 0.5s ease;
+  transition: all 0.3s ease-in;
   opacity: 0;
 }
 .story__item .hover-overlay__icon {
@@ -530,6 +530,7 @@ p {
   opacity: 1;
   transform: translate(-10px, -10px);
   box-shadow: 10px 10px 0 0 #95e1d3;
+  transition: all 0.4s ease-out;
 }
 .statistics {
   background: #95e1d3;
@@ -649,7 +650,7 @@ p {
   left: 0;
   transform: rotateX(0);
   transform-origin: bottom;
-  transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-out;
   transform-style: preserve-3d;
   backface-visibility: hidden;
   opacity: 1;
@@ -666,6 +667,7 @@ p {
 .skills__image--hidden {
   transform: rotateX(-120deg);
   opacity: 0;
+  transition: all 0.3s ease-in;
 }
 .skills__image--active {
   display: block;
@@ -818,6 +820,7 @@ p {
 }
 .carousel__arrow.cancel-flipping:before {
   animation: arrow-cancel-flipping 0.5s;
+  animation-timing-function: ease-out;
 }
 .carousel__arrow.clicked:before {
   animation: arrow-clicked 0.2s;
@@ -829,7 +832,8 @@ p {
   display: flex;
   width: 300%;
   transform: translateX(0);
-  transition: transform 0.5s ease;
+  transition: transform 0.5s cubic-bezier(0.81, 0.47, 0.55, 1.23);
+  transition: transform 0.5s ease-in;
 }
 /*not using*/
 @keyframes arrow-clicked {
@@ -939,7 +943,7 @@ p {
   align-items: center;
   background-image: linear-gradient(to top, rgba(252, 227, 138, 0.8), rgba(243, 129, 129, 0.8));
   transform: translate(0px, 0px);
-  transition: all 0.5s ease;
+  transition: all 0.5s ease-in;
   opacity: 0;
 }
 .team__image-wrap .overlay__list {
@@ -974,6 +978,7 @@ p {
   opacity: 1;
   transform: translate(-10px, -10px);
   box-shadow: 10px 10px 0 0 #95e1d3;
+  transition: all 0.4s ease-out;
 }
 .team__name {
   line-height: 14px;
@@ -1016,7 +1021,7 @@ p {
   transform-origin: top left;
   box-sizing: border-box;
   cursor: pointer;
-  transition: all 0.5s ease-out;
+  transition: all 0.4s ease-out;
 }
 .work__elem .overlay {
   position: absolute;
@@ -1090,6 +1095,12 @@ p {
 }
 .work__wrapper--right article:nth-child(2) {
   background: url("../graph/pict/work-image-7.jpg") no-repeat center center;
+}
+.images-scale-out {
+  transform-origin: center;
+  transform: scale(0);
+  opacity: 0;
+  transition: 0.5s ease-in;
 }
 .clients {
   padding-top: 110px;
@@ -1327,7 +1338,9 @@ p {
   width: 380px;
   height: 240px;
   margin-bottom: 30px;
-  background: url("/graph/pict/blog-image-1.jpg") no-repeat 0 0;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-image: url("/graph/pict/blog-image-1.jpg");
 }
 .blog-content__image[data-animate] {
   transform: scale(0);
@@ -1348,8 +1361,9 @@ p {
 }
 .blog-content p {
   color: inherit;
-  margin-bottom: 15px;
-  line-height: 25px;
+  margin-bottom: 20px;
+  font-size: 18px;
+  line-height: 32px;
 }
 .map {
   margin-bottom: 70px;
@@ -1533,23 +1547,32 @@ footer.inner {
   bottom: 0;
   justify-content: flex-end;
   align-items: center;
-  background-color: #9affdd;
+  background-color: #bcfde7;
   opacity: 0;
   transition: all 0.4s;
+  transition-delay: 0.1s;
 }
 .gallery-overlay h2 {
   font-family: "Kaushan Script", cursive;
-  font-size: 28px;
-  margin-bottom: 15px;
+  font-size: 35px;
+  margin-bottom: 25px;
+  color: #473e3f;
+}
+.gallery-overlay p {
+  font-size: 20px;
+  line-height: 35px;
+  text-align: justify;
+  color: #473e3f;
 }
 .gallery-overlay__close-btn {
   position: fixed;
   z-index: 20;
   top: 22px;
-  right: 50px;
+  right: 30px;
   width: 30px;
   height: 30px;
   cursor: pointer;
+  transform: scale(0);
 }
 .gallery-overlay__close-btn:before,
 .gallery-overlay__close-btn:after {
@@ -1559,7 +1582,7 @@ footer.inner {
   width: 3px;
   height: 25px;
   content: "";
-  background: rgba(0, 72, 65, 0.91);
+  background: #473e3f;
   transition: background 0.2s;
 }
 .gallery-overlay__close-btn:before {
@@ -1570,27 +1593,33 @@ footer.inner {
 }
 .gallery-overlay__close-btn:hover:before,
 .gallery-overlay__close-btn:hover:after {
-  background: white;
+  background: #218C8D;
 }
 .gallery-overlay__content {
   width: 45%;
   box-sizing: border-box;
   color: black;
-  padding-right: 40px;
+  padding-right: 80px;
 }
 .gallery-overlay--animate {
   opacity: 0;
-  transform: translateY(-20px);
-  transition: all 0.4s;
-  transition-timing-function: ease-in;
-  color: rgba(0, 72, 65, 0.91);
-  text-shadow: 1px 1px 0 white;
+  transition: all 0.4s ease-in;
 }
-.animate {
+.gallery-overlay--animate[data-animate='scale'] {
+  transform: rotate(360deg) scale(0);
+}
+.gallery-overlay--animate[data-animate="translateY"] {
+  transform: translateY(20px);
+}
+.content-animate-in {
   opacity: 1;
+  transition: all 0.3s ease-out;
+}
+.content-animate-in[data-animate="scale"] {
+  transform: rotate(0) scale(1);
+}
+.content-animate-in[data-animate="translateY"] {
   transform: translateY(0);
-  transition-timing-function: ease-out;
-  transition-duration: 0.5s;
 }
 .showed {
   display: flex;
@@ -1598,13 +1627,7 @@ footer.inner {
 .color {
   opacity: 1;
 }
-.scale {
-  transform-origin: center;
-  transform: scale(0);
-  opacity: 0;
-  transition-timing-function: ease-in;
-}
-.overflow-blocked {
+.block-scroll {
   overflow: hidden;
   padding-right: 17px;
 }

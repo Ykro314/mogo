@@ -68,7 +68,7 @@ Gallery.prototype.showGallery = function( event ) {
       }
       disableOverlay = disableOverlay.bind( this );
       
-      
+      image.style.transition = ""
       image.style.transform = "";
       this.toggleImagesState( this.images, "remove" );
       this.overlay.element.classList.remove( "color" );
@@ -98,7 +98,7 @@ Gallery.prototype.toggleImagesState = function( imagesArray, act ) {
       continue;
     }
     else {
-        imagesArray[i].classList[act]( "scale" );
+        imagesArray[i].classList[act]( "images-scale-out" );
     }
     
   }
@@ -149,6 +149,8 @@ Gallery.prototype.transformClickedImage = function( clickedImg ) {
   var translateString = "translate(" + translateObj.left + "px," + translateObj.top + "px)";
   var scaleString = "scale(" + scale + ")";
   
+  clickedImg.style.transition = "all 0.5s ease-in";
+  clickedImg.style.transition = "all 0.6s cubic-bezier(.8,.15,.64,.79)";
   clickedImg.style.zIndex = 10;
   clickedImg.style.transform = translateString + scaleString;
 }

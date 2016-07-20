@@ -17,7 +17,7 @@
     transform-origin: top left;
     box-sizing: border-box;
     cursor: pointer;
-    transition: all 0.5s ease-out;
+    transition: all 0.4s ease-out;
     .overlay {
       position: absolute;
       top: 0;
@@ -112,4 +112,12 @@
         center center;
     }
   }
+}
+
+
+.images-scale-out {
+  transform-origin: center;
+  transform: scale(0);
+  opacity: 0;
+  transition: 0.5s ease-in;
 }

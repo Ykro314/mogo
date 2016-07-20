@@ -44,6 +44,7 @@
     }
     &.cancel-flipping:before {
       animation: arrow-cancel-flipping 0.5s;
+      animation-timing-function: ease-out;
 //      background: red;
     }
     &.clicked:before {
@@ -57,7 +58,8 @@
     display: flex;
     width: 300%;
     transform: translateX(0);
-    transition: transform 0.5s ease; 
+    transition: transform 0.5s cubic-bezier(.81,.47,.55,1.23); 
+    transition: transform 0.5s ease-in; 
 //    flex-direction: column;
   }
 }
@@ -73,6 +75,8 @@
     transform: scale(1) rotate(45deg);; 
   }
 }
+
+
 @keyframes arrow-cancel-flipping {
   0% {
     transform: translateX(0) rotate(45deg);
@@ -93,6 +97,8 @@
     transform: translateX(0) rotate(45deg);
   }
 }
+
+
 .slide {
   width: 33.33%;
 //  height: 220px;

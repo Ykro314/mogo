@@ -90,7 +90,9 @@
     width: 380px;
     height: 240px;
     margin-bottom: 30px;
-    background: url("/graph/pict/blog-image-1.jpg") no-repeat 0 0;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-image: url( "/graph/pict/blog-image-1.jpg" );
     &[data-animate] {
       transform: scale( 0 );
     }
@@ -111,7 +113,13 @@
   }
   p {
     color: inherit;
-    margin-bottom: 15px;
-    line-height: 25px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    line-height: 32px;
+//    &:first-letter{
+//      color: red;
+////      font-style: italic;
+//      font-size: larger;
+//    }
   }
 }

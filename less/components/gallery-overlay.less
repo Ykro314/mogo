@@ -1,3 +1,7 @@
+@bg-overlay:  #bcfde7;
+@fc-overlay-content:   #473E3F;
+
+
 .gallery-overlay {
   display: none;
   z-index: 5;
@@ -8,22 +12,32 @@
   bottom: 0;
   justify-content: flex-end;
   align-items: center;
-  background-color: #9affdd;
+  background-color: @bg-overlay;  //#9affdd //#bcfde7
   opacity: 0;
   transition: all 0.4s;
+  transition-delay: 0.1s;
   h2 {
     font-family: @f-Kaushan;
-    font-size: 28px;
-    margin-bottom: 15px;
+    font-size: 35px;
+    margin-bottom: 25px;
+    color: @fc-overlay-content;
+//    text-shadow: 1px 1px 0 white;
+  }
+  p {
+    font-size: 20px;
+    line-height: 35px;
+    text-align: justify;
+    color: @fc-overlay-content;
   }
   &__close-btn {
     position: fixed;
     z-index: 20;
     top: 22px;
-    right: 50px;
+    right: 30px;
     width: 30px;
     height: 30px;
     cursor: pointer;
+    transform: scale(0);
     &:before,
     &:after {
       position: absolute;
@@ -32,7 +46,7 @@
       width: 3px; 
       height: 25px;
       content: "";
-      background: rgba(0, 72, 65, 0.91);
+      background: @fc-overlay-content; //rgba(0, 72, 65, 0.91)
       transition: background 0.2s;
     }
     &:before { 
@@ -43,31 +57,38 @@
     }
     &:hover:before,
     &:hover:after {
-      background: white;
+      background: #218C8D;
     }
   }
   &__content {
     width: 45%;
     box-sizing: border-box;
     color: black;
-    padding-right: 40px;
+    padding-right: 80px;
   }
   &--animate {
     opacity: 0;
-    transform: translateY(-20px);
-    transition: all 0.4s;
-    transition-timing-function: ease-in;
-    color: rgba(0, 72, 65, 0.91);
-    text-shadow: 1px 1px 0 white;
+    transition: all 0.4s ease-in;
+//    color: rgba(0, 72, 65, 0.91);
+    &[data-animate='scale'] {
+      transform: rotate(360deg) scale( 0 );
+    }
+    &[data-animate="translateY"] {
+      transform: translateY(20px)
+    }
   }
 }
 
 
-.animate {
+.content-animate-in {
   opacity: 1;
-  transform: translateY(0); 
-  transition-timing-function: ease-out;
-  transition-duration: 0.5s;
+  transition: all 0.3s ease-out;
+  &[data-animate="scale"] {
+    transform: rotate( 0 )scale(1); 
+  }
+  &[data-animate="translateY"] {
+    transform: translateY(0)
+  }
 }
 
 
@@ -79,14 +100,14 @@
   opacity: 1;
 }
 
-.scale {
-  transform-origin: center;
-  transform: scale(0);
-  opacity: 0;
-  transition-timing-function: ease-in;
-}
+//.images-scale-out {
+//  transform-origin: center;
+//  transform: scale(0);
+//  opacity: 0;
+//  transition: 0.5s ease-in;
+//}
 
-.overflow-blocked {
+.block-scroll {
   overflow: hidden;
   padding-right: 17px;
 }

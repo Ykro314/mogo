@@ -54,23 +54,31 @@ GalleryOverlay.prototype.animateOvelayContent = function( delay ) {
   
   function animateContent() {
     for( var i = 0; i < this.content.length; i++ ) {
-      this.content[i].classList.toggle( "animate" );
+      
+      (function( self ){
+        var j = i;
+        setTimeout( function(){
+          self.content[j].classList.toggle( "content-animate-in" );
+        }, j * 200 )
+      })( this );
+  
+//      this.content[i].classList.toggle( "content-animate-in" )
     }
   }
   animateContent = animateContent.bind( this );
-  delay = delay || 50;
   
+  delay = delay || 50;
   setTimeout( animateContent, delay );
 }
 
 
 GalleryOverlay.prototype.blockBodyOverflow = function() {
-  document.body.classList.add( "overflow-blocked" );
+  document.body.classList.add( "block-scroll" );
 }
 
 
 GalleryOverlay.prototype.restoreBodyOverflow = function() {
-  document.body.classList.remove( "overflow-blocked" );
+  document.body.classList.remove( "block-scroll" );
 }
   
 

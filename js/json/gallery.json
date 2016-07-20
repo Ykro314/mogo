@@ -1,37 +1,37 @@
 var imagesData = [
   {
-    "header": "Microsoft is starting a private beta for its iPhone keyboard",
-    "body": "Microsoft has its own mobile operating system, but that hasn't stopped it from opening a public beta for a new iPhone keyboard.",
+    "header": "Microsoft is starting a private beta",
+    "body": "Microsoft has its own mobile operating system, but that hasn't stopped it from opening a public beta for a new iPhone keyboard. Microsoft has its own mobile operating system, but that hasn't stopped it from opening a public beta for a new iPhone keyboard.",
     "date": "2016-04-14T08:40:23.449Z"
   },
   {
-    "header": "Microsoft sues U.S. government over data gag orders",
-    "body": "Microsoft wants a federal court to invalidate part of a 1986 law that it alleged has been abused by the government when authorities demand customers' data.",
+    "header": "Microsoft sues U.S. government",
+    "body": "Microsoft wants a federal court to invalidate part of a 1986 law that it alleged has been abused by the government when authorities demand customers' data. Microsoft wants a federal court to invalidate part of a 1986 law that it alleged has been abused by the government when authorities demand customers' data.",
     "date": "2016-03-14T08:40:23.449Z"
   },
   {
-    "header": "Why AI still needs us: To build quantum computers",
-    "body": "We humans may still be licking our wounds following AI's victory at the ancient game of Go, but it turns out we still have something to be proud of.",
+    "header": "Why AI still needs us?",
+    "body": "We humans may still be licking our wounds following AI's victory at the ancient game of Go, but it turns out we still have something to be proud of.We humans may still be licking our wounds following AI's victory at the ancient game of Go, but it turns out we still have something to be proud of.",
     "date": "2016-03-14T08:40:24.449Z"
   },
   {
-    "header": "Secretive Intel quietly woos makers in China",
-    "body": "Intel's launched new robotics and drone developer kits at the low-key IDF trade show in Shenzhen.",
+    "header": "Secretive Intel quietly woos makers",
+    "body": "Intel's launched new robotics and drone developer kits at the low-key IDF trade show in Shenzhen. Intel's launched new robotics and drone developer kits at the low-key IDF trade show in Shenzhen.",
     "date": "2016-02-14T08:40:23.449Z"
   },
   {
     "header": "Microsoft sues US government over secret requests for user data",
-    "body": "Microsoft has sued the U.S. government in an attempt to strike down a law allowing judges to gag tech companies when law enforcement agencies want access to their users' data.",
+    "body": "Microsoft has sued the U.S. government in an attempt to strike down a law allowing judges to gag tech companies when law enforcement agencies want access to their users' data. Microsoft has sued the U.S. government in an attempt to strike down a law allowing judges to gag tech companies when law enforcement agencies want access to their users' data.",
     "date": "2016-04-14T09:40:23.449Z"
   },
   {
-    "header": "EU gives companies two years to comply with sweeping new privacy laws",
-    "body": "Companies could face massive fines in 25 European Union countries if they mishandle citizens' personal information, under a new privacy law due to take effect in 2018.",
+    "header": "EU gives companies two years",
+    "body": "Companies could face massive fines in 25 European Union countries if they mishandle citizens' personal information, under a new privacy law due to take effect in 2018. Companies could face massive fines in 25 European Union countries if they mishandle citizens' personal information, under a new privacy law due to take effect in 2018.",
     "date": "2016-01-14T08:40:23.449Z"
   },
   {
-    "header": "Ransomware authors use the bitcoin blockchain to deliver encryption keys",
-    "body": "Ransomware authors are using the bitcoin blockchain, which serves as the cryptocurrency's public transaction ledger, to deliver encryption keys to users.",
+    "header": "Ransomware authors use the bitcoin",
+    "body": "Ransomware authors are using the bitcoin blockchain, which serves as the cryptocurrency's public transaction ledger, to deliver encryption keys to users. Ransomware authors are using the bitcoin blockchain, which serves as the cryptocurrency's public transaction ledger, to deliver encryption keys to users.",
     "date": "2016-04-12T08:40:23.449Z"
   },
 ]
